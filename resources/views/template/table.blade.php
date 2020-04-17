@@ -3,12 +3,13 @@
 @parent
 <div class="d-flex justify-content-center" style="position: relative; color:black; margin-top:2vw;">
   <div style="z-index: 1; margin-left:45vw;">
-    <a data-toggle="modal" data-target="#@yield('tambah')modal">
+    <!-- <a data-toggle="modal" data-target="#@yield('tambah')modalTambah">
       <i id="tambah" onmouseover="tulisan()" class="fas fa-plus mr-4" style="font-size:30px;color:#00BFA6; cursor: pointer;">
         <span></span>
       </i>
-    </a>
-    <a data-toggle="modal" data-target="#modalDetails">
+    </a> -->
+    @yield('tambah')
+    <a data-toggle="modal" data-target="#modalFilter">
       <i id="tambah" onmouseover="tulisan()" class="fas fa-filter mr-4" style="font-size:25px;color:#00BFA6;cursor: pointer;">
         <span></span>
       </i>
@@ -67,7 +68,7 @@
 </div>
 
 <!-- Modal Tambah -->
-<div style="color: black;" class="modal fade" id="Pesananmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div style="color: black;" class="modal fade" id="PesananmodalTambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -88,7 +89,7 @@
 </div>
 
 <!-- Modal Tambah Data-->
-<div style="color: black;" class="modal fade" id="Datamodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div style="color: black;" class="modal fade" id="DatamodalTambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -170,6 +171,26 @@
   </div>
 </div>
 
+<!-- Modal Filter -->
+<div style="color: black;" class="modal fade" id="modalFilter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Filter</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        @yield('bodyFilter')
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <button type="button" class="btn btn-primary">Simpan</button>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
   $(document).ready(function() {
     $('#table_id').DataTable({

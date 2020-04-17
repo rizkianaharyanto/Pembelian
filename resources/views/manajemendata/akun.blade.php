@@ -20,7 +20,7 @@
     <td>Tipe {{ $i }}</td>
     <td class="d-flex justify-content-center">
         <a data-toggle="modal" data-target="#modalDetailsData">
-            <i id="details" onmouseover="tulisan()" class="fas fa-info-circle">
+            <i id="details" onmouseover="tulisan()" style="cursor: pointer;" class="fas fa-info-circle">
                 <span></span>
             </i>
         </a>
@@ -28,6 +28,7 @@
     </tr>
     @endfor
     @endsection
+
 
 
     <!-- Details -->

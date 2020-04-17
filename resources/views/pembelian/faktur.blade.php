@@ -51,7 +51,13 @@
     @endsection
 
     <!-- Tambah -->
-    @section('tambah', 'Pesanan')
+    @section('tambah')
+    <a data-toggle="modal" data-target="#PesananmodalTambah">
+      <i id="tambah" onmouseover="tulisan()" class="fas fa-plus mr-4" style="font-size:30px;color:#00BFA6; cursor: pointer;">
+        <span></span>
+      </i>
+    </a>
+    @endsection
 
     @section('judulTambah')
     <h5 class="align-self-center">Tambah Faktur</h5>
@@ -175,6 +181,7 @@
             </div>
         </div>
     </div>
+    
     @endsection
 
     <!-- Edit -->

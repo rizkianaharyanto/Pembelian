@@ -68,7 +68,13 @@ endsection -->
     @endsection
 
     <!-- Tambah -->
-    @section('tambah', 'Data')
+    @section('tambah')
+    <a data-toggle="modal" data-target="#DatamodalTambah">
+      <i id="tambah" onmouseover="tulisan()" class="fas fa-plus mr-4" style="font-size:30px;color:#00BFA6; cursor: pointer;">
+        <span></span>
+      </i>
+    </a>
+    @endsection
 
     @section('judulTambah')
     <h5 class="align-self-center">Tambah Supplier</h5>
