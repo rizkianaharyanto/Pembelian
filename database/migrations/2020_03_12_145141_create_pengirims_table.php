@@ -21,7 +21,7 @@ class CreatePengirimsTable extends Migration
             $table->string('email_pengirim');
             $table->timestamps();
             //fk
-            $table->bigInteger('supplier_id');
+            $table->bigInteger('supplier_id')->nullable();
         });
     }
 

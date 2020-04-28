@@ -19,6 +19,22 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
+Route::get('/supplier', 'SuppliersController@index');
+Route::get('/barang', 'BarangsController@index');
+Route::get('/gudang', 'GudangsController@index');
+Route::get('/pengirim', 'PengirimsController@index');
+Route::get('/akun', 'AkunsController@index');
+Route::get('/pajak', 'PajaksController@index');
+Route::get('/jurnal', 'JurnalsController@index');
+Route::get('/pemesanan', 'PemesanansController@index');
+Route::get('/penerimaan', 'PenerimaansController@index');
+Route::get('/permintaan', 'PermintaansController@index');
+Route::get('/faktur', 'FaktursController@index');
+Route::get('/retur', 'RetursController@index');
+Route::get('/hutang', 'HutangsController@index');
+Route::get('/pembayaran', 'PembayaransController@index');
+
+
 // Route::get('/supplier', function () {
 //     return view('manajemendata.supplier');
 // });
@@ -27,62 +43,7 @@ Route::get('/dashboard', function () {
 //     return view('manajemendata.pengirim');
 // });
 
-Route::get('/barang', function () {
-    return view('manajemendata.barang');
-});
-
-Route::get('/gudang', function () {
-    return view('manajemendata.gudang');
-});
-
-Route::get('/akun', function () {
-    return view('manajemendata.akun');
-});
-
-Route::get('/pajak', function () {
-    return view('manajemendata.pajak');
-});
-
-Route::get('/jurnal', function () {
-    return view('jurnal');
-});
-
-Route::get('/pemesanan', function () {
-    return view('pembelian.pemesanan');
-});
-
-Route::get('/penerimaan', function () {
-    return view('pembelian.penerimaan');
-});
-
-Route::get('/permintaan', function () {
-    return view('pembelian.permintaan');
-});
-
-Route::get('/faktur', function () {
-    return view('pembelian.faktur');
-});
-
-Route::get('/retur', function () {
-    return view('pembelian.retur');
-});
-
-Route::get('/hutang', function () {
-    return view('hutang.hutang');
-});
-
-Route::get('/pembayaran', function () {
-    return view('hutang.pembayaran');
-});
-
-Route::get('/supplier', function () {
-    return view('manajemendata.supplier');
-});
-Route::get('/pengirim', function () {
-    return view('manajemendata.pengirim');
-});
-
-Route::get('/supplier/create', 'DataMastersController@tambahsp');
-Route::post('/supplier', 'DataMastersController@savesp');
-Route::get('/pengirim/create', 'DataMastersController@tambahpengirim');
-Route::post('/pengirim', 'DataMastersController@savepengirim');
+// Route::get('/supplier/create', 'DataMastersController@tambahsp');
+// Route::post('/supplier', 'DataMastersController@savesp');
+// Route::get('/pengirim/create', 'DataMastersController@tambahpengirim');
+// Route::post('/pengirim', 'DataMastersController@savepengirim');

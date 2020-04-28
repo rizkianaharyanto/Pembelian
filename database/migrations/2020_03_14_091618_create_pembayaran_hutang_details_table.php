@@ -18,8 +18,8 @@ class CreatePembayaranHutangDetailsTable extends Migration
             $table->integer('total');
             $table->timestamps();
             //fk
-            $table->bigInteger('pembayaran_id');
-            $table->bigInteger('hutang_id');
+            $table->bigInteger('pembayaran_id')->nullable();
+            $table->bigInteger('hutang_id')->nullable();
         });
     }
 

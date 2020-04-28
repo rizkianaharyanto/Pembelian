@@ -20,11 +20,11 @@ class CreateJurnalsTable extends Migration
             $table->integer('kredit');
             $table->timestamps();
             //fk
-            $table->bigInteger('akun_id');
-            $table->bigInteger('penerimaan_id');
-            $table->bigInteger('faktur_id');
-            $table->bigInteger('retur_id');
-            $table->bigInteger('pembayaran_id');
+            $table->bigInteger('akun_id')->nullable();
+            $table->bigInteger('penerimaan_id')->nullable();
+            $table->bigInteger('faktur_id')->nullable();
+            $table->bigInteger('retur_id')->nullable();
+            $table->bigInteger('pembayaran_id')->nullable();
         });
     }
 

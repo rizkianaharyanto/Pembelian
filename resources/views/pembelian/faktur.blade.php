@@ -6,7 +6,7 @@
 
 @section('thead')
 <tr>
-    <th>Faktur Id</th>
+    <th>Kode Faktur</th>
     <th>Supplier</th>
     <th>Tanggal</th>
     <th>Total</th>
@@ -15,12 +15,12 @@
 @endsection
 
 @section('tbody')
-@for ($i = 1; $i < 50; $i++)
+@foreach ($fakturs as $faktur)
 <tr>
-    <td>{{ $i }}</td>
-    <td>Supplier {{ $i }}</td>
-    <td>Tanggal {{ $i }}</td>
-    <td>Total {{ $i }}</td>
+    <td>{{ $faktur->kode_faktur }}</td>
+    <td>Supplier</td>
+    <td>{{ $faktur->tanggal }}</td>
+    <td>{{ $faktur->total_harga }}</td>
     <td class="d-flex justify-content-between">
         <a data-toggle="modal" data-target="#modalDetails">
             <i id="details" onmouseover="tulisan()" style="cursor: pointer;" class="fas fa-info-circle">
@@ -39,7 +39,7 @@
         </a>
     </td>
 </tr>
-@endfor
+@endforeach
 @endsection
 
 

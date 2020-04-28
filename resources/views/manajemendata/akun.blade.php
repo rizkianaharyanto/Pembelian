@@ -14,10 +14,11 @@
 @endsection
 
 @section('tbody')
-@for ($i = 1; $i < 50; $i++) <tr>
-    <td>{{ $i }}</td>
-    <td>Nama {{ $i }}</td>
-    <td>Tipe {{ $i }}</td>
+@foreach ($akuns as $akun)
+<tr>
+    <td>{{ $akun->kode_akun }}</td>
+    <td>{{ $akun->nama_akun }}</td>
+    <td>{{ $akun->tipe_akun }}</td>
     <td class="d-flex justify-content-center">
         <a data-toggle="modal" data-target="#modalDetailsData">
             <i id="details" onmouseover="tulisan()" style="cursor: pointer;" class="fas fa-info-circle">
@@ -26,7 +27,7 @@
         </a>
     </td>
     </tr>
-    @endfor
+    @endforeach
     @endsection
 
 

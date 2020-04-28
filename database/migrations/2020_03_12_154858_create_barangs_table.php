@@ -20,11 +20,11 @@ class CreateBarangsTable extends Migration
             $table->string('nama_barang');
             $table->string('jenis_barang');
             $table->integer('harga_barang');
-            $table->string('gambar');
+            $table->string('gambar')->nullable();
             $table->timestamps();
             //fk
-            $table->bigInteger('supplier_id');
-            $table->bigInteger('pajak_id');
+            $table->bigInteger('supplier_id')->nullable();
+            $table->bigInteger('pajak_id')->nullable();
         });
     }
 

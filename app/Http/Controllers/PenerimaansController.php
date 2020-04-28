@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Penerimaan;
 use Illuminate\Http\Request;
-use App\Hutang;
-use App\Pembayaran;
 
-class HutangsController extends Controller
+class PenerimaansController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class HutangsController extends Controller
      */
     public function index()
     {
-        $hutangs = Hutang::all();
-        return view('hutang.hutang', compact('hutangs'));
+        $penerimaans = Penerimaan::all();
+        return view('pembelian.penerimaan', compact('penerimaans'));
     }
 
     /**
@@ -43,10 +42,10 @@ class HutangsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Penerimaan  $penerimaan
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Penerimaan $penerimaan)
     {
         //
     }
@@ -54,10 +53,10 @@ class HutangsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Penerimaan  $penerimaan
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Penerimaan $penerimaan)
     {
         //
     }
@@ -66,10 +65,10 @@ class HutangsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Penerimaan  $penerimaan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Penerimaan $penerimaan)
     {
         //
     }
@@ -77,10 +76,10 @@ class HutangsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Penerimaan  $penerimaan
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Penerimaan $penerimaan)
     {
         //
     }

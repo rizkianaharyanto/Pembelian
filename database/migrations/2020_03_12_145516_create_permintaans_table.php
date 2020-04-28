@@ -25,7 +25,7 @@ class CreatePermintaansTable extends Migration
             $table->integer('biaya_lain');
             $table->timestamps();
             //fk
-            $table->bigInteger('supplier_id');
+            $table->bigInteger('supplier_id')->nullable();
         });
     }
 

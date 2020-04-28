@@ -6,7 +6,7 @@
 
 @section('thead')
 <tr>
-    <th>Hutang id</th>
+    <th>Kode Hutang</th>
     <th>Supplier</th>
     <th>Total Hutang</th>
     <th>Total Lunas</th>
@@ -16,18 +16,18 @@
 @endsection
 
 @section('tbody')
-@for ($i = 1; $i < 50; $i++)
+@foreach ($hutangs as $hutang)
 <tr>
-    <td>{{ $i }}</td>
-    <td>Supplier {{ $i }}</td>
-    <td>Hutang {{ $i }}</td>
-    <td>Lunas {{ $i }}</td>
-    <td>Sisa {{ $i }}</td>
+    <td>{{ $hutang->kode_hutang }}</td>
+    <td>Supplier</td>
+    <td>{{ $hutang->total_hutang }}</td>
+    <td>{{ $hutang->total_lunas }}</td>
+    <td>{{ $hutang->total_sisa }}</td>
     <td class="d-flex justify-content-between">
         <i onclick="" class="fas fa-info-circle"></i>
         <i onclick="" class="fas fa-edit"></i>
         <i onclick="" class="fas fa-trash"></i>
     </td>
 </tr>
-@endfor
+@endforeach
 @endsection

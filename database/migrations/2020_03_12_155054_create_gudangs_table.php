@@ -23,7 +23,7 @@ class CreateGudangsTable extends Migration
             $table->string('status_gudang');
             $table->timestamps();
             //fk
-            $table->bigInteger('barang_id');
+            $table->bigInteger('barang_id')->nullable();
         });
     }
 

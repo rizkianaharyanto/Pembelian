@@ -6,7 +6,7 @@
 
 @section('thead')
 <tr>
-    <th>KOde Gudang</th>
+    <th>Kode Gudang</th>
     <th>Nama Gudang</th>
     <th>Telp</th>
     <th>Status</th>
@@ -15,12 +15,12 @@
 @endsection
 
 @section('tbody')
-@for ($i = 1; $i < 50; $i++)
+@foreach ($gudangs as $gudang)
 <tr>
-    <td>{{ $i }}</td>
-    <td>Nama {{ $i }}</td>
-    <td>Telp {{ $i }}</td>
-    <td>Status {{ $i }}</td>
+    <td>{{ $gudang->kode_gudang }}</td>
+    <td>{{ $gudang->nama_gudang }}</td>
+    <td>{{ $gudang->telp_gudang }}</td>
+    <td>{{ $gudang->status_gudang }}</td>
     <td class="d-flex justify-content-between">
     <a data-toggle="modal" data-target="#modalDetailsData">
             <i id="details" onmouseover="tulisan()" style="cursor: pointer;" class="fas fa-info-circle">
@@ -29,7 +29,7 @@
         </a>
     </td>
     </tr>
-    @endfor
+    @endforeach
     @endsection
 
 

@@ -20,10 +20,10 @@ class CreateHutangsTable extends Migration
             $table->integer('total_lunas');
             $table->integer('total_sisa');
             $table->timestamps();
-            $table->string('transaction_type');
+            $table->string('transaction_type')->nullable();
             //fk
-            $table->bigInteger('supplier_id');
-            $table->bigInteger('kode_transaksi');
+            $table->bigInteger('supplier_id')->nullable();
+            $table->bigInteger('kode_transaksi')->nullable();
         });
     }
 

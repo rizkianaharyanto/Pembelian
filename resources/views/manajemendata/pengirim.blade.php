@@ -19,11 +19,12 @@ endsection -->
 @endsection
 
 @section('tbody')
-@for ($i = 1; $i < 50; $i++) <tr>
-    <td>{{ $i }}</td>
-    <td>Supplier {{ $i }}</td>
-    <td>Nama {{ $i }}</td>
-    <td>Telp {{ $i }}</td>
+@foreach ($pengirims as $pengirim)
+<tr>
+    <td>{{ $pengirim->kode_pengirim }}</td>
+    <td>Supplier</td>
+    <td>{{ $pengirim->nama_pengirim }}</td>
+    <td>{{ $pengirim->telp_pengirim }}</td>
     <td class="d-flex justify-content-between">
         <a data-toggle="modal" data-target="#modalDetailsData">
             <i id="details" onmouseover="tulisan()" style="cursor: pointer;" class="fas fa-info-circle">
@@ -42,7 +43,7 @@ endsection -->
         </a>
     </td>
     </tr>
-    @endfor
+    @endforeach
     @endsection
 
 

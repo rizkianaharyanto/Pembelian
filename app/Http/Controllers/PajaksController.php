@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Pajak;
 use Illuminate\Http\Request;
-use App\Hutang;
-use App\Pembayaran;
 
-class HutangsController extends Controller
+class PajaksController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class HutangsController extends Controller
      */
     public function index()
     {
-        $hutangs = Hutang::all();
-        return view('hutang.hutang', compact('hutangs'));
+        $pajaks = Pajak::all();
+        return view('manajemendata.pajak', compact('pajaks'));
     }
 
     /**
@@ -43,10 +42,10 @@ class HutangsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Pajak  $pajak
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Pajak $pajak)
     {
         //
     }
@@ -54,10 +53,10 @@ class HutangsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Pajak  $pajak
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Pajak $pajak)
     {
         //
     }
@@ -66,10 +65,10 @@ class HutangsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Pajak  $pajak
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Pajak $pajak)
     {
         //
     }
@@ -77,10 +76,10 @@ class HutangsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Pajak  $pajak
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pajak $pajak)
     {
         //
     }

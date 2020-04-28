@@ -21,8 +21,8 @@ class CreateReturDetailsTable extends Migration
             $table->integer('harga');
             $table->timestamps();
             //fk
-            $table->bigInteger('retur_id');
-            $table->bigInteger('barang_id');
+            $table->bigInteger('retur_id')->nullable();
+            $table->bigInteger('barang_id')->nullable();
         });
     }
 

@@ -24,8 +24,8 @@ class CreateRetursTable extends Migration
             $table->integer('biaya_lain');
             $table->timestamps();
             //fk
-            $table->bigInteger('supplier_id');
-            $table->bigInteger('faktur_id');
+            $table->bigInteger('supplier_id')->nullable();
+            $table->bigInteger('faktur_id')->nullable();
         });
     }
 

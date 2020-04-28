@@ -24,8 +24,8 @@ class CreatePenerimaansTable extends Migration
             $table->integer('biaya_lain');
             $table->timestamps();
             //fk
-            $table->bigInteger('supplier_id');
-            $table->bigInteger('pemesanan_id');
+            $table->bigInteger('supplier_id')->nullable();
+            $table->bigInteger('pemesanan_id')->nullable();
         });
     }
 

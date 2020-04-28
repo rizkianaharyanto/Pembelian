@@ -24,7 +24,7 @@ class CreateFaktursTable extends Migration
             $table->integer('uang_muka');
             $table->timestamps();
             //fk
-            $table->bigInteger('supplier_id');
+            $table->bigInteger('supplier_id')->nullable();
         });
     }
 

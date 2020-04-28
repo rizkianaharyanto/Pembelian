@@ -22,8 +22,8 @@ class CreatePemesananDetailsTable extends Migration
             $table->integer('barang_belum_diterima');
             $table->timestamps();
             //fk
-            $table->bigInteger('pemesanan_id');
-            $table->bigInteger('barang_id');
+            $table->bigInteger('pemesanan_id')->nullable();
+            $table->bigInteger('barang_id')->nullable();
         });
     }
 

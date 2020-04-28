@@ -6,7 +6,7 @@
 
 @section('thead')
 <tr>
-    <th>Retur Id</th>
+    <th>Kode Retur</th>
     <th>Supplier</th>
     <th>Tanggal</th>
     <th>Gudang</th>
@@ -16,12 +16,13 @@
 @endsection
 
 @section('tbody')
-@for ($i = 1; $i < 50; $i++) <tr>
-    <td>{{ $i }}</td>
-    <td>Supplier {{ $i }}</td>
-    <td>Tanggal {{ $i }}</td>
-    <td>Gudang {{ $i }}</td>
-    <td>Total {{ $i }}</td>
+@foreach ($returs as $retur)
+<tr>
+    <td>{{ $retur->kode_retur }}</td>
+    <td>Supplier</td>
+    <td>{{ $retur->tanggal }}</td>
+    <td>Gudang</td>
+    <td>{{ $retur->total_harga }}</td>
     <td class="d-flex justify-content-between">
         <a data-toggle="modal" data-target="#modalDetails">
             <i id="details" onmouseover="tulisan()" style="cursor: pointer;" class="fas fa-info-circle">
@@ -40,7 +41,7 @@
         </a>
     </td>
     </tr>
-    @endfor
+    @endforeach
     @endsection
 
     

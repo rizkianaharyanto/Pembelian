@@ -11,7 +11,7 @@ endsection -->
 
 @section('thead')
 <tr>
-    <th>Supplier Id</th>
+    <th>Kode Supplier</th>
     <th>Nama Supplier</th>
     <th>Telp</th>
     <th style="column-width: 80px">Aksi</th>
@@ -19,10 +19,11 @@ endsection -->
 @endsection
 
 @section('tbody')
-@for ($i = 1; $i < 50; $i++) <tr>
-    <td>{{ $i }}</td>
-    <td>Supplier {{ $i }}</td>
-    <td>Telp {{ $i }}</td>
+@foreach ($suppliers as $supplier)
+<tr>
+    <td>{{ $supplier->kode_supplier }}</td>
+    <td>{{ $supplier->nama_supplier }}</td>
+    <td>{{ $supplier->telp_supplier }}</td>
     <td class="d-flex justify-content-between">
         <a data-toggle="modal" data-target="#modalDetailsData">
             <i id="details" onmouseover="tulisan()" style="cursor: pointer;" class="fas fa-info-circle">
@@ -41,7 +42,7 @@ endsection -->
         </a>
     </td>
     </tr>
-    @endfor
+    @endforeach
     @endsection
 
     <!-- Details -->

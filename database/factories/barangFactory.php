@@ -12,8 +12,5 @@ $factory->define(Barang::class, function (Faker $faker) {
         'nama_barang' => $faker->name,
         'jenis_barang' => "jenis barang",
         'harga_barang' => $faker->randomNumber(5),
-        'gambar' => "",
-        'supplier_id' => "",
-        'pajak_id' => "",
     ];
 });

@@ -6,7 +6,6 @@
 
 @section('thead')
 <tr>
-    <th>No</th>
     <th>Akun</th>
     <th>Debit</th>
     <th>Kredit</th>
@@ -15,17 +14,16 @@
 @endsection
 
 @section('tbody')
-@for ($i = 1; $i < 50; $i++)
+@foreach ($jurnals as $jurnal)
 <tr>
-    <td>{{ $i }}</td>
-    <td>Akun {{ $i }}</td>
-    <td>Debit {{ $i }}</td>
-    <td>Kredit {{ $i }}</td>
+    <td>Akun</td>
+    <td>{{ $jurnal->debit }}</td>
+    <td>{{ $jurnal->kredit }}</td>
     <td class="d-flex justify-content-between">
         <i onclick="" class="fas fa-info-circle"></i>
         <i onclick="" class="fas fa-edit"></i>
         <i onclick="" class="fas fa-trash"></i>
     </td>
 </tr>
-@endfor
+@endforeach
 @endsection

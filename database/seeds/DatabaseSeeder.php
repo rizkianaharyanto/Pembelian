@@ -12,11 +12,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            // supplierSeeder::class,
-            // barangSeeder::class,
+            supplierSeeder::class,
+            barangSeeder::class,
             akunSeeder::class,
             pajakSeeder::class,
-            // gudangSeeder::class,
+            gudangSeeder::class,
             pengirimSeeder::class,
             permintaanSeeder::class,
             pemesananSeeder::class,

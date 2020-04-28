@@ -21,8 +21,8 @@ class CreatePermintaanDetailsTable extends Migration
             $table->integer('harga');
             $table->timestamps();
             //fk
-            $table->bigInteger('permintaan_id');
-            $table->bigInteger('barang_id');
+            $table->bigInteger('permintaan_id')->nullable();
+            $table->bigInteger('barang_id')->nullable();
         });
     }
 

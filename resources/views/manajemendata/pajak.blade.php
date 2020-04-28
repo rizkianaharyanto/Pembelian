@@ -14,11 +14,11 @@
 @endsection
 
 @section('tbody')
-@for ($i = 1; $i < 50; $i++)
+@foreach ($pajaks as $pajak)
 <tr>
-    <td>{{ $i }}</td>
-    <td>Nama {{ $i }}</td>
-    <td>Presentase {{ $i }}</td>
+    <td>{{ $pajak->kode_pajak }}</td>
+    <td>{{ $pajak->nama_pajak }}</td>
+    <td>{{ $pajak->pajak }}</td>
     <td class="d-flex justify-content-between">
     <a data-toggle="modal" data-target="#modalDetailsData">
             <i id="details" onmouseover="tulisan()" style="cursor: pointer;" class="fas fa-info-circle">
@@ -27,7 +27,7 @@
         </a>
     </td>
     </tr>
-    @endfor
+    @endforeach
     @endsection
 
 

@@ -19,12 +19,12 @@ class CreateFakturDetailsTable extends Migration
             $table->double('pajak', 8, 3);
             $table->integer('jumlah_barang');
             $table->integer('harga');
-            $table->string('transactiom_type');
-            $table->string('kode_transaksi');
+            $table->string('transactiom_type')->nullable();
+            $table->string('kode_transaksi')->nullable();
             $table->timestamps();
             //fk
-            $table->bigInteger('faktur_id');
-            $table->bigInteger('barang_id');
+            $table->bigInteger('faktur_id')->nullable();
+            $table->bigInteger('barang_id')->nullable();
         });
     }
 

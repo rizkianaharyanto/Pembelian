@@ -20,8 +20,8 @@ class CreatePembayaransTable extends Migration
             $table->date('tanggal');
             $table->timestamps();
             //fk
-            $table->bigInteger('supplier_id');
-            $table->bigInteger('akun_id');
+            $table->bigInteger('supplier_id')->nullable();
+            $table->bigInteger('akun_id')->nullable();
         });
     }
 
