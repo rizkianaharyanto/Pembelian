@@ -19,7 +19,7 @@
                 </a>
                 <ul class="collapse list-unstyled" id="drop">
                         <li class="pt-2">
-                            <a href="/supplier">Data Supplier</a>
+                            <a href="/suppliers">Data Supplier</a>
                         </li>
                         <li class="pt-2">
                             <a href="/pengirim">Data Pengirim</a>

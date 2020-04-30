@@ -19,8 +19,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::get('/supplier', 'SuppliersController@index');
-Route::get('/barang', 'BarangsController@index');
+Route::resources([
+    'suppliers' => 'SuppliersController',
+    'barangs' => 'BarangsController'
+]);
+
+// Route::get('/supplier', 'SuppliersController@index');
+// Route::get('/barang', 'BarangsController@index');
 Route::get('/gudang', 'GudangsController@index');
 Route::get('/pengirim', 'PengirimsController@index');
 Route::get('/akun', 'AkunsController@index');

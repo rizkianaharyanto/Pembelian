@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Supplier;
 use Illuminate\Http\Request;
+use Illuminate\View\ViewName;
 
 class SuppliersController extends Controller
 {
@@ -47,7 +48,8 @@ class SuppliersController extends Controller
      */
     public function show(Supplier $supplier)
     {
-        //
+        $supplier = Supplier::find($supplier);
+        return $supplier;
     }
 
     /**
