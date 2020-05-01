@@ -8,7 +8,7 @@
         <div class="item">
             <i onclick="collapseNav()" class="fas fa-th-large"></i>
             <span>
-                <a href="/dashboard">Dashboard</a>
+                <a href="/">Dashboard</a>
             </span>
         </div>
         <div class="item">
@@ -22,19 +22,19 @@
                             <a href="/suppliers">Data Supplier</a>
                         </li>
                         <li class="pt-2">
-                            <a href="/pengirim">Data Pengirim</a>
+                            <a href="/pengirims">Data Pengirim</a>
                         </li>
                         <li class="pt-2">
-                            <a href="/barang">Data Barang</a>
+                            <a href="/barangs">Data Barang</a>
                         </li>
                         <li class="pt-2">
-                            <a href="/gudang">Data Gudang</a>
+                            <a href="/gudangs">Data Gudang</a>
                         </li>
                         <li class="pt-2">
-                            <a href="/akun">Data Akun</a>
+                            <a href="/akuns">Data Akun</a>
                         </li>
                         <li class="pt-2">
-                            <a href="/pajak">Data Pajak</a>
+                            <a href="/pajaks">Data Pajak</a>
                         </li>
                 </ul>
             </span>
@@ -42,49 +42,49 @@
         <div class="item">
             <i onclick="collapseNav()" class="fas fa-envelope-open-text"></i>
             <span>
-                <a href="/permintaan">Permintaan Penawaran Harga</a>
+                <a href="/permintaans">Permintaan Penawaran Harga</a>
             </span>
         </div>
         <div class="item">
             <i onclick="collapseNav()" class="fas fa-boxes"></i>
             <span>
-                <a href="/pemesanan">Pemesanan</a>
+                <a href="/pemesanans">Pemesanan</a>
             </span>
         </div>
         <div class="item">
             <i onclick="collapseNav()" class="fas fa-shipping-fast"></i>
             <span>
-                <a href="/penerimaan">Penerimaan Barang</a>
+                <a href="/penerimaans">Penerimaan Barang</a>
             </span>
         </div>
         <div class="item">
             <i onclick="collapseNav()" class="fas fa-clipboard-check"></i>
             <span>
-                <a href="/faktur">Faktur</a>
+                <a href="/fakturs">Faktur</a>
             </span>
         </div>
         <div class="item">
             <i onclick="collapseNav()" class="fas fa-exchange-alt"></i>
             <span>
-                <a href="/retur">Retur Pembelian</a>
+                <a href="/returs">Retur Pembelian</a>
             </span>
         </div>
         <div class="item">
             <i onclick="collapseNav()" class="fas fa-file-invoice-dollar"></i>
             <span>
-                <a href="/hutang">Hutang</a>
+                <a href="/hutangs">Hutang</a>
             </span>
         </div>
         <div class="item">
             <i onclick="collapseNav()" class="fas fa-hand-holding-usd"></i>
             <span>
-                <a href="/pembayaran">Pembayaran Hutang</a>
+                <a href="/pembayarans">Pembayaran Hutang</a>
             </span>
         </div>
         <div class="item">
             <i onclick="collapseNav()" class="fas fa-file-alt"></i>
             <span>
-                <a href="/jurnal">Jurnal</a>
+                <a href="/jurnals">Jurnal</a>
             </span>
         </div>
     </div>

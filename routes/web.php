@@ -15,29 +15,37 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
-
 Route::resources([
     'suppliers' => 'SuppliersController',
-    'barangs' => 'BarangsController'
+    'barangs' => 'BarangsController',
+    'gudangs' => 'GudangsController',
+    'pengirims' => 'PengirimsController',
+    'akuns' => 'AkunsController',
+    'pajaks' => 'PajaksController',
+    'jurnals' => 'JurnalsController',
+    'pemesanans' => 'PemesanansController',
+    'penerimaans' => 'PenerimaansController',
+    'permintaans' => 'PermintaansController',
+    'fakturs' => 'FaktursController',
+    'returs' => 'RetursController',
+    'hutangs' => 'HutangsController',
+    'pembayarans' => 'PembayaransController',
 ]);
 
 // Route::get('/supplier', 'SuppliersController@index');
 // Route::get('/barang', 'BarangsController@index');
-Route::get('/gudang', 'GudangsController@index');
-Route::get('/pengirim', 'PengirimsController@index');
-Route::get('/akun', 'AkunsController@index');
-Route::get('/pajak', 'PajaksController@index');
-Route::get('/jurnal', 'JurnalsController@index');
-Route::get('/pemesanan', 'PemesanansController@index');
-Route::get('/penerimaan', 'PenerimaansController@index');
-Route::get('/permintaan', 'PermintaansController@index');
-Route::get('/faktur', 'FaktursController@index');
-Route::get('/retur', 'RetursController@index');
-Route::get('/hutang', 'HutangsController@index');
-Route::get('/pembayaran', 'PembayaransController@index');
+// Route::get('/gudang', 'GudangsController@index');
+// Route::get('/pengirim', 'PengirimsController@index');
+// Route::get('/akun', 'AkunsController@index');
+// Route::get('/pajak', 'PajaksController@index');
+// Route::get('/jurnal', 'JurnalsController@index');
+// Route::get('/pemesanan', 'PemesanansController@index');
+// Route::get('/penerimaan', 'PenerimaansController@index');
+// Route::get('/permintaan', 'PermintaansController@index');
+// Route::get('/faktur', 'FaktursController@index');
+// Route::get('/retur', 'RetursController@index');
+// Route::get('/hutang', 'HutangsController@index');
+// Route::get('/pembayaran', 'PembayaransController@index');
 
 
 // Route::get('/supplier', function () {
