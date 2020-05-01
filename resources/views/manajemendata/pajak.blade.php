@@ -34,7 +34,7 @@
         var id = $(this).attr("id");
         console.log(id);
         if (id == "details") {
-            // $('#lebarmodal').addClass('modal-xl');
+            $('#lebarmodal').removeClass('modal-xl');
             $('#judulmodal').html(
                 '<h5 class="align-self-center">Pajak A</h5>'
             );

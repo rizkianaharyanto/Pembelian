@@ -35,7 +35,7 @@
         var id = $(this).attr("id");
         console.log(id);
         if (id == "details") {
-            // $('#lebarmodal').addClass('modal-xl');
+            $('#lebarmodal').removeClass('modal-xl');
             $('#judulmodal').html(
                 '<i class="fas fa-user-circle mr-4" style="font-size:50px;color:#00BFA6;"></i>' +
                 '<h5 class="align-self-center">Barang A</h5>'

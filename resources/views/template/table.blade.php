@@ -27,6 +27,7 @@
   </div>
 </div>
 
+<!-- modal -->
 <div style="color: black;" class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div id="lebarmodal" class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
