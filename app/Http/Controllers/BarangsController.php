@@ -47,7 +47,8 @@ class BarangsController extends Controller
      */
     public function show(Barang $barang)
     {
-        //
+        $barang = Barang::find($barang);
+        return $barang;
     }
 
     /**

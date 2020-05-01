@@ -26,7 +26,7 @@ endsection -->
     <td>{{ $pengirim->nama_pengirim }}</td>
     <td>{{ $pengirim->telp_pengirim }}</td>
     <td class="d-flex justify-content-between">
-        <a id="details" data-toggle="modal" data-target="#modal">
+        <a id="details" data-toggle="modal" data-target="#modal" data-id="{{ $pengirim->id }}">
             <i onmouseover="tulisan()" style="cursor: pointer;" class="fas fa-info-circle">
                 <span></span>
             </i>
@@ -50,29 +50,33 @@ endsection -->
     $("a").click(function() {
         var id = $(this).attr("id");
         console.log(id);
+        var ini = $(this).data("id");
+        console.log(ini);
         if (id == "details") {
-            $('#lebarmodal').removeClass('modal-xl');
-            $('#judulmodal').html(
-                '<i class="fas fa-user-circle mr-4" style="font-size:50px;color:#00BFA6;"></i>' +
-                '<h5 class="align-self-center">Pengirim A</h5>'
-            );
-            $('#bodymodal').html(
-                '<form>' +
-                '<fieldset class="detail-modal" disabled>' +
-                '<div class="form-group ">' +
-                '<label for="disabledTextInput">Email</label>' +
-                '<input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">' +
-                '</div>' +
-                '<div class="form-group">' +
-                '<label for="disabledTextInput">Telp</label>' +
-                '<input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">' +
-                '</div>' +
-                '</fieldset>' +
-                '</form>'
-            );
-            $('#footermodal').html(
-                '<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>'
-            );
+            $.get("/pengirims/" + ini, function(datanya) {
+                $('#lebarmodal').removeClass('modal-xl');
+                $('#judulmodal').html(
+                    '<i class="fas fa-user-circle mr-4" style="font-size:50px;color:#00BFA6;"></i> ' +
+                    '<h5 id = "nama_pengirim" class = "align-self-center">' + datanya[0].nama_pengirim + '</h5>'
+                );
+                $('#bodymodal').html(
+                    '<form>' +
+                    '<fieldset class="detail-modal" disabled>' +
+                    '<div class="form-group">' +
+                    '<label for="telp_pengirim">Telp</label>' +
+                    '<input type="number" class="form-control" id="telp_pengirim" name="telp_pengirim" placeholder="' + datanya[0].telp_pengirim + '">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="email_pengirim">Email</label>' +
+                    '<input type="email" class="form-control" id="email_pengirim" name="email_pengirim" placeholder="' + datanya[0].email_pengirim + '">' +
+                    '</div>' +
+                    '</fieldset>' +
+                    '</form>'
+                );
+                $('#footermodal').html(
+                    '<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>'
+                );
+            });
         } else if (id == "edit") {
             $('#lebarmodal').removeClass('modal-xl');
             $('#judulmodal').html(
@@ -119,7 +123,7 @@ endsection -->
 
 <!-- Tambah -->
 @section('tambah')
-<a data-toggle="modal" data-target="#modal">
+<a data-toggle="modal" data-target="#modaltambah">
     <i id="tambah" onmouseover="tulisan()" class="fas fa-plus mr-4" style="font-size:30px;color:#00BFA6; cursor: pointer;">
         <span></span>
     </i>
@@ -132,18 +136,24 @@ endsection -->
 
 @section('bodyTambah')
 
-<form>
+<form method="POST" action="/pengirims">
+    @csrf
     <div class="form-group d-inline-flex">
         <i class="fas fa-user-circle mr-4" style="font-size:50px;color:#00BFA6;"></i>
-        <input type="file" class="form-control-file align-self-center" id="exampleFormControlFile1">
+        <input type="file" class="form-control-file align-self-center" id="foto">
+    </div>
+        <input type="hidden" id="kode_pengirim" name="kode_pengirim" placeholder="" value="PENG">
+    <div class="form-group">
+        <label for="nama_pengirim">Nama pengirim</label>
+        <input type="text" class="form-control" id="nama_pengirim" name="nama_pengirim" placeholder="">
     </div>
     <div class="form-group">
-        <label for="exampleFormControlInput1">Email</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <label for="telp_pengirim">Telp</label>
+        <input type="number" class="form-control" id="telp_pengirim" name="telp_pengirim" placeholder="">
     </div>
     <div class="form-group">
-        <label for="exampleFormControlInput1">Telp</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <label for="email_pengirim">Email</label>
+        <input type="email" class="form-control" id="email_pengirim" name="email_pengirim" placeholder="">
     </div>
-</form>
+
 @endsection

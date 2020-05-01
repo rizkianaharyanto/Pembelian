@@ -47,7 +47,8 @@ class AkunsController extends Controller
      */
     public function show(Akun $akun)
     {
-        //
+        $akun = Akun::find($akun);
+        return $akun;
     }
 
     /**

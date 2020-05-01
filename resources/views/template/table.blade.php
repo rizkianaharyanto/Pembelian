@@ -38,11 +38,53 @@
         </button>
       </div>
       <div id="bodymodal" class="modal-body">
-        
+
       </div>
       <div id="footermodal" class="modal-footer">
-        
+
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- tambah -->
+<div style="color: black;" class="modal fade" id="modaltambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div id="lebarmodal" class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div id="judulmodal" class="modal-title d-inline-flex" id="exampleModalLongTitle">@yield('judulTambah')</div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="bodymodal" class="modal-body">
+        @yield('bodyTambah')
+      </div>
+      <div id="footermodal" class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-primary">Tambah</button>
+      </div></form>
+    </div>
+  </div>
+</div>
+
+<!-- edit -->
+<div style="color: black;" class="modal fade" id="modaledit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div id="lebarmodal" class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div id="judulmodal" class="modal-title d-inline-flex" id="exampleModalLongTitle">@yield('judulEdit')</div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="bodymodal" class="modal-body">
+        @yield('bodyEdit')
+      </div>
+      <div id="footermodal" class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-primary">Edit</button>
+      </div></form>
     </div>
   </div>
 </div>
@@ -57,4 +99,3 @@
   });
 </script>
 @endsection
-

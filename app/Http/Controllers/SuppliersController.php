@@ -37,7 +37,8 @@ class SuppliersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Supplier::create($request->all());
+        return redirect('/suppliers');
     }
 
     /**

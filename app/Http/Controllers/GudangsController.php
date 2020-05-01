@@ -47,7 +47,8 @@ class GudangsController extends Controller
      */
     public function show(Gudang $gudang)
     {
-        //
+        $gudang = Gudang::find($gudang);
+        return $gudang;
     }
 
     /**

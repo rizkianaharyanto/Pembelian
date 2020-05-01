@@ -47,7 +47,8 @@ class PajaksController extends Controller
      */
     public function show(Pajak $pajak)
     {
-        //
+        $pajak = Pajak::find($pajak);
+        return $pajak;
     }
 
     /**

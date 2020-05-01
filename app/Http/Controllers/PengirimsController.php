@@ -36,7 +36,8 @@ class PengirimsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Pengirim::create($request->all());
+        return redirect('/pengirims');
     }
 
     /**
@@ -47,7 +48,8 @@ class PengirimsController extends Controller
      */
     public function show(Pengirim $pengirim)
     {
-        //
+        $pengirim = Pengirim::find($pengirim);
+        return $pengirim;
     }
 
     /**

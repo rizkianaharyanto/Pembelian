@@ -59,29 +59,41 @@ endsection -->
     $("a").click(function() {
         var id = $(this).attr("id");
         console.log(id);
+        var ini = $(this).data("id");
+        console.log(ini);
+        // $.get("/suppliers/" + ini, function(datanya) {
+        //     console.log(datanya[0].nama_supplier);
+        //     $('#nama_supplier').html("Supplier" + datanya[0].nama_supplier);
+        // });
         if (id == "details") {
-            $('#lebarmodal').removeClass('modal-xl');
-            $('#judulmodal').html(
-                '<i class="fas fa-user-circle mr-4" style="font-size:50px;color:#00BFA6;"></i> ' +
-                '<h5 id = "nama_supplier" class = "align-self-center"> Supplier </h5>'
-            );
-            $('#bodymodal').html(
-                '<form>' +
-                '<fieldset class="detail-modal" disabled>' +
-                '<div class="form-group ">' +
-                '<label for="disabledTextInput">Email</label>' +
-                '<input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">' +
-                '</div>' +
-                '<div class="form-group">' +
-                '<label for="disabledTextInput">Telp</label>' +
-                '<input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">' +
-                '</div>' +
-                '</fieldset>' +
-                '</form>'
-            );
-            $('#footermodal').html(
-                '<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>'
-            );
+            $.get("/suppliers/" + ini, function(datanya) {
+                $('#lebarmodal').removeClass('modal-xl');
+                $('#judulmodal').html(
+                    '<i class="fas fa-user-circle mr-4" style="font-size:50px;color:#00BFA6;"></i> ' +
+                    '<h5 id = "nama_supplier" class = "align-self-center"> Supplier ' + datanya[0].nama_supplier + '</h5>'
+                );
+                $('#bodymodal').html(
+                    '<form>' +
+                    '<fieldset class="detail-modal" disabled>' +
+                    '<div class="form-group">' +
+                    '<label for="telp_supplier">Telp</label>' +
+                    '<input type="number" class="form-control" id="telp_supplier" name="telp_supplier" placeholder="' + datanya[0].telp_supplier + '">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="email_supplier">Email</label>' +
+                    '<input type="email" class="form-control" id="email_supplier" name="email_supplier" placeholder="' + datanya[0].email_supplier + '">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="alamat_supplier">Alamat</label>' +
+                    '<input type="text" class="form-control" id="alamat_supplier" name="alamat_supplier" placeholder="' + datanya[0].alamat_supplier + '">' +
+                    '</div>' +
+                    '</fieldset>' +
+                    '</form>'
+                );
+                $('#footermodal').html(
+                    '<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>'
+                );
+            });
         } else if (id == "edit") {
             $('#lebarmodal').removeClass('modal-xl');
             $('#judulmodal').html(
@@ -126,7 +138,7 @@ endsection -->
 
 <!-- Tambah -->
 @section('tambah')
-<a data-toggle="modal" data-target="#DatamodalTambah">
+<a data-toggle="modal" data-target="#modaltambah">
     <i id="tambah" onmouseover="tulisan()" class="fas fa-plus mr-4" style="font-size:30px;color:#00BFA6; cursor: pointer;">
         <span></span>
     </i>
@@ -139,20 +151,28 @@ endsection -->
 
 @section('bodyTambah')
 
-<form>
+<form method="POST" action="/suppliers">
+    @csrf
     <div class="form-group d-inline-flex">
         <i class="fas fa-user-circle mr-4" style="font-size:50px;color:#00BFA6;"></i>
-        <input type="file" class="form-control-file align-self-center" id="exampleFormControlFile1">
+        <input type="file" class="form-control-file align-self-center" id="foto">
+    </div>
+    <input type="hidden" id="kode_supplier" name="kode_supplier" placeholder="" value="SUP">
+    <div class="form-group">
+        <label for="nama_supplier">Nama Supplier</label>
+        <input type="text" class="form-control" id="nama_supplier" name="nama_supplier" placeholder="">
     </div>
     <div class="form-group">
-        <label for="exampleFormControlInput1">Email</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <label for="telp_supplier">Telp</label>
+        <input type="number" class="form-control" id="telp_supplier" name="telp_supplier" placeholder="">
     </div>
     <div class="form-group">
-        <label for="exampleFormControlInput1">Telp</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <label for="email_supplier">Email</label>
+        <input type="email" class="form-control" id="email_supplier" name="email_supplier" placeholder="">
     </div>
-</form>
-@endsection
+    <div class="form-group">
+        <label for="alamat_supplier">Alamat</label>
+        <input type="text" class="form-control" id="alamat_supplier" name="alamat_supplier" placeholder="">
+    </div>
 
-
+    @endsection
