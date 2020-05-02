@@ -31,12 +31,12 @@ endsection -->
                 <span></span>
             </i>
         </a>
-        <a id="edit" data-toggle="modal" data-target="#modal">
+        <a id="edit" data-toggle="modal" data-target="#modal" data-id="{{ $pengirim->id }}">
             <i onmouseover="tulisan()" style="cursor: pointer;" class="fas fa-edit">
                 <span></span>
             </i>
         </a>
-        <a id="delete" data-toggle="modal" data-target="#modal">
+        <a id="delete" data-toggle="modal" data-target="#modal" data-id="{{ $pengirim->id }}">
             <i onmouseover="tulisan()" style="cursor: pointer;" class="fas fa-trash">
                 <span></span>
             </i>
@@ -52,8 +52,8 @@ endsection -->
         console.log(id);
         var ini = $(this).data("id");
         console.log(ini);
-        if (id == "details") {
-            $.get("/pengirims/" + ini, function(datanya) {
+        $.get("/pengirims/" + ini, function(datanya) {
+            if (id == "details") {
                 $('#lebarmodal').removeClass('modal-xl');
                 $('#judulmodal').html(
                     '<i class="fas fa-user-circle mr-4" style="font-size:50px;color:#00BFA6;"></i> ' +
@@ -76,45 +76,48 @@ endsection -->
                 $('#footermodal').html(
                     '<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>'
                 );
-            });
-        } else if (id == "edit") {
-            $('#lebarmodal').removeClass('modal-xl');
-            $('#judulmodal').html(
-                '<h5 class="align-self-center">Edit Pengirim</h5>'
-            );
-            $('#bodymodal').html(
-                '<form>' +
-                '<div class="form-group d-inline-flex">' +
-                '<i class="fas fa-user-circle mr-4" style="font-size:50px;color:#00BFA6;"></i>' +
-                '<input type="file" class="form-control-file align-self-center" id="exampleFormControlFile1">' +
-                '</div>' +
-                '<div class="form-group">' +
-                '<label for="exampleFormControlInput1">Email</label>' +
-                '<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">' +
-                '</div>' +
-                '<div class="form-group">' +
-                '<label for = "exampleFormControlInput1" > Telp </label>' +
-                '<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">' +
-                '</div>' +
-                '</form>'
-            );
-            $('#footermodal').html(
-                '<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>' +
-                '<button type="button" class="btn btn-primary">Simpan</button>'
-            );
-        } else if (id == "delete") {
-            $('#lebarmodal').removeClass('modal-xl');
-            $('#judulmodal').html(
-                '<h5 class="align-self-center">Hapus Pengirim</h5>'
-            );
-            $('#bodymodal').html(
-                '<p>Apakah kamu yakin ingin menghapus Pengirim A ?</p>'
-            );
-            $('#footermodal').html(
-                '<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>' +
-                '<button type="button" class="btn btn-danger">Hapus</button>'
-            );
-        }
+            } else if (id == "edit") {
+                $('#lebarmodal').removeClass('modal-xl');
+                $('#judulmodal').html(
+                    '<h5 class="align-self-center">Edit Pengirim ' + datanya[0].nama_pengirim + '</h5>'
+                );
+                $('#bodymodal').html(
+                    '<form method="POST" action="/pengirims/' + datanya[0].id + '">' +
+                    '@method("patch")' +
+                    '@csrf' +
+                    '<div class="form-group">' +
+                    '<label for="nama_pengirim">Nama</label>' +
+                    '<input type="text" class="form-control" id="nama_pengirim" name="nama_pengirim" value="' + datanya[0].nama_pengirim + '">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="telp_pengirim">Telp</label>' +
+                    '<input type="number" class="form-control" id="telp_pengirim" name="telp_pengirim" value="' + datanya[0].telp_pengirim + '">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label for="email_pengirim">Email</label>' +
+                    '<input type="email" class="form-control" id="email_pengirim" name="email_pengirim" value="' + datanya[0].email_pengirim + '">' +
+                    '</div>' +
+                    '<div class="form-group modal-footer">' +
+                    '<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>' +
+                    '<button type="submit" class="btn btn-primary">Simpan</button>' + 
+                    '</div>' +
+                    '</form>'
+                );
+                $('#footermodal').removeClass('modal-footer');
+            } else if (id == "delete") {
+                $('#lebarmodal').removeClass('modal-xl');
+                $('#judulmodal').html(
+                    '<h5 class="align-self-center">Hapus Pengirim</h5>'
+                );
+                $('#bodymodal').html(
+                    '<p>Apakah kamu yakin ingin menghapus Pengirim A ?</p>'
+                );
+                $('#footermodal').html(
+                    '<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>' +
+                    '<button type="button" class="btn btn-danger">Hapus</button>'
+                );
+            }
+        });
     })
 </script>
 @endsection
@@ -142,7 +145,7 @@ endsection -->
         <i class="fas fa-user-circle mr-4" style="font-size:50px;color:#00BFA6;"></i>
         <input type="file" class="form-control-file align-self-center" id="foto">
     </div>
-        <input type="hidden" id="kode_pengirim" name="kode_pengirim" placeholder="" value="PENG">
+    <input type="hidden" id="kode_pengirim" name="kode_pengirim" placeholder="" value="PENG">
     <div class="form-group">
         <label for="nama_pengirim">Nama pengirim</label>
         <input type="text" class="form-control" id="nama_pengirim" name="nama_pengirim" placeholder="">
@@ -156,4 +159,4 @@ endsection -->
         <input type="email" class="form-control" id="email_pengirim" name="email_pengirim" placeholder="">
     </div>
 
-@endsection
+    @endsection

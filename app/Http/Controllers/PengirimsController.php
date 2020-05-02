@@ -72,7 +72,14 @@ class PengirimsController extends Controller
      */
     public function update(Request $request, Pengirim $pengirim)
     {
-        //
+        Pengirim::where('id', $pengirim->id)
+            ->update([
+                'nama_pengirim' => $request->nama_pengirim,
+                'telp_pengirim' => $request->telp_pengirim,
+                'email_pengirim' => $request->email_pengirim,
+            ]);
+
+        return redirect('/pengirims');
     }
 
     /**

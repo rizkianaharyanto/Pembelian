@@ -73,7 +73,15 @@ class SuppliersController extends Controller
      */
     public function update(Request $request, Supplier $supplier)
     {
-        //
+        Supplier::where('id', $supplier->id)
+            ->update([
+                'nama_supplier' => $request->nama_supplier,
+                'telp_supplier' => $request->telp_supplier,
+                'email_supplier' => $request->email_supplier,
+                'alamat_supplier' => $request->alamat_supplier
+            ]);
+
+        return redirect('/suppliers');
     }
 
     /**
