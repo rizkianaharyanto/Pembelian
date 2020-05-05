@@ -92,6 +92,8 @@ class SuppliersController extends Controller
      */
     public function destroy(Supplier $supplier)
     {
-        //
+        Supplier::destroy($supplier->id);
+        return redirect('/suppliers');
+        // return $supplier;
     }
 }

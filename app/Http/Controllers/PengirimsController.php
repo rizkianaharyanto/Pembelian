@@ -90,6 +90,7 @@ class PengirimsController extends Controller
      */
     public function destroy(Pengirim $pengirim)
     {
-        //
+        Pengirim::destroy($pengirim->id);
+        return redirect('/pengirims');
     }
 }

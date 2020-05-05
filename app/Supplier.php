@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Supplier extends Model
 {
     protected $guarded = ['id'];
+    use SoftDeletes;
     public function pengirims()
     {
         return $this->hasMany('App\Pengirim');

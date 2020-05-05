@@ -110,11 +110,15 @@ endsection -->
                     '<h5 class="align-self-center">Hapus Pengirim</h5>'
                 );
                 $('#bodymodal').html(
-                    '<p>Apakah kamu yakin ingin menghapus Pengirim A ?</p>'
+                    '<p>Apakah kamu yakin ingin menghapus Pengirim ' + datanya[0].nama_pengirim + ' ?</p>'
                 );
                 $('#footermodal').html(
                     '<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>' +
-                    '<button type="button" class="btn btn-danger">Hapus</button>'
+                    '<form method="POST" action="/pengirims/' + datanya[0].id + '">' +
+                    '@method("delete")' +
+                    '@csrf' +
+                    '<button type="submit" class="btn btn-danger">Hapus</button>' +
+                    '</form>'
                 );
             }
         });
