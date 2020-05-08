@@ -47,29 +47,9 @@
   </div>
 </div>
 
-<!-- edit js -->
-<div style="color: black;" class="modal fade" id="modaleditjs" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div id="lebarmodaljs" class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div id="judulmodaljs" class="modal-title d-inline-flex" id="exampleModalLongTitle"></div>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div id="bodymodaljs" class="modal-body">
-
-      </div>
-      <div id="footermodaljs" class="modal-footer">
-
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- tambah -->
 <div style="color: black;" class="modal fade" id="modaltambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div id="lebarmodal" class="modal-dialog modal-dialog-centered" role="document">
+  <div id="lebarmodaltambah" class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <div id="judulmodal" class="modal-title d-inline-flex" id="exampleModalLongTitle">@yield('judulTambah')</div>
@@ -80,7 +60,7 @@
       <div id="bodymodal" class="modal-body">
         @yield('bodyTambah')
       </div>
-      <div id="footermodal" class="modal-footer">
+      <div id="footermodaltambah" class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
         <button type="submit" class="btn btn-primary">Tambah</button>
       </div></form>
@@ -88,26 +68,6 @@
   </div>
 </div>
 
-<!-- edit -->
-<div style="color: black;" class="modal fade" id="modaledit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div id="lebarmodal" class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div id="judulmodal" class="modal-title d-inline-flex" id="exampleModalLongTitle">@yield('judulEdit')</div>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div id="bodymodal" class="modal-body">
-        @yield('bodyEdit')
-      </div>
-      <div id="footermodal" class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-        <button type="submit" class="btn btn-primary">Edit</button>
-      </div></form>
-    </div>
-  </div>
-</div>
 
 <script>
   $(document).ready(function() {
@@ -117,5 +77,7 @@
     });
     $('.dataTables_length').addClass('bs-select');
   });
+
+  
 </script>
 @endsection

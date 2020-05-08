@@ -84,4 +84,10 @@ class BarangsController extends Controller
     {
         //
     }
+
+    public function ambil()
+    {
+        $semua = Barang::all();
+        return $semua;
+    }
 }

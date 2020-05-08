@@ -11,9 +11,14 @@
 |
 */
 
+use App\Http\Controllers\GudangsController;
+
 Route::get('/', function () {
     return view('dashboard');
 });
+
+Route::get('/ambilgudang', 'GudangsController@ambil');
+Route::get('/ambilbarang', 'BarangsController@ambil');
 
 Route::resources([
     'suppliers' => 'SuppliersController',

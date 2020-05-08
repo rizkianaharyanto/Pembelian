@@ -84,4 +84,10 @@ class GudangsController extends Controller
     {
         //
     }
+
+    public function ambil()
+    {
+        $semua = Gudang::all();
+        return $semua;
+    }
 }
