@@ -42,8 +42,9 @@
     </td>
 </tr>
 @endforeach
+@endsection
 
-<script>
+<!-- <script>
     $("a").click(function() {
         var id = $(this).attr("id");
         console.log(id);
@@ -135,7 +136,7 @@
                 '</div>' +
                 '<div id="test-l-2" class="content">' +
                 '<form>' +
-                '@for ($i = 1; $i < 4; $i++)' +
+                'for ($i = 1; $i < 4; $i++)' +
                 '<div class="form-row">' +
                 '<div class="form-group col-md-3">' +
                 '<label for="exampleFormControlInput1">Barang</label>' +
@@ -170,7 +171,7 @@
                 '<input type="number" class="form-control" id="exampleFormControlInput1" disabled>' +
                 '</div>' +
                 '</div>' +
-                '@endfor' +
+                'endfor' +
                 '</form>' +
 
                 '<button class="btn btn-primary" onclick="stepper1.previous()">Previous</button>' +
@@ -225,31 +226,29 @@
         console.warn('shown.bs-stepper', event)
     })
 </script>
-    @endsection
+    endsection
 
     
-    <!-- Details -->
-    @section('judulDetails')
-    @endsection
+    section('judulDetails')
+    endsection
 
-    @section('bodyDetails')
-    @endsection
+    section('bodyDetails')
+    endsection
 
 
-    <!-- Tambah -->
-    @section('tambah')
+    section('tambah')
     <a data-toggle="modal" data-target="#PesananmodalTambah">
       <i id="tambah" onmouseover="tulisan()" class="fas fa-plus mr-4" style="font-size:30px;color:#00BFA6; cursor: pointer;">
         <span></span>
       </i>
     </a>
-    @endsection
+    endsection
 
-    @section('judulTambah')
+    section('judulTambah')
     <h5 class="align-self-center">Tambah Penerimaan</h5>
-    @endsection
+    endsection
 
-    @section('bodyTambah')
+    section('bodyTambah')
     <div class="row">
         <div class="col-md-12">
             <div id="stepper1" class="bs-stepper">
@@ -309,7 +308,7 @@
                     </div>
                     <div id="test-l-2" class="content">
                         <form>
-                        @for ($i = 1; $i < 4; $i++)
+                        for ($i = 1; $i < 4; $i++)
                             <div class="form-row">
                                 <div class="form-group col-md-3">
                                     <label for="exampleFormControlInput1">Barang</label>
@@ -344,7 +343,7 @@
                                     <input type="number" class="form-control" id="exampleFormControlInput1" disabled>
                                 </div>
                             </div>
-                            @endfor
+                            endfor
                         </form>
 
                         <button class="btn btn-primary" onclick="stepper1.previous()">Previous</button>
@@ -367,4 +366,4 @@
             </div>
         </div>
     </div>
-    @endsection
+    endsection -->

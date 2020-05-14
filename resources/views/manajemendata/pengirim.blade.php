@@ -55,6 +55,7 @@ endsection -->
         $.get("/pengirims/" + ini, function(datanya) {
             if (id == "details") {
                 $('#lebarmodal').removeClass('modal-xl');
+                $('#footermodal').addClass('modal-footer');
                 $('#judulmodal').html(
                     '<i class="fas fa-user-circle mr-4" style="font-size:50px;color:#00BFA6;"></i> ' +
                     '<h5 id = "nama_pengirim" class = "align-self-center">' + datanya[0].nama_pengirim + '</h5>'
@@ -78,6 +79,7 @@ endsection -->
                 );
             } else if (id == "edit") {
                 $('#lebarmodal').removeClass('modal-xl');
+                $('#footermodal').empty();
                 $('#judulmodal').html(
                     '<h5 class="align-self-center">Edit Pengirim ' + datanya[0].nama_pengirim + '</h5>'
                 );
@@ -103,9 +105,9 @@ endsection -->
                     '</div>' +
                     '</form>'
                 );
-                $('#footermodal').removeClass('modal-footer');
             } else if (id == "delete") {
                 $('#lebarmodal').removeClass('modal-xl');
+                $('#footermodal').addClass('modal-footer');
                 $('#judulmodal').html(
                     '<h5 class="align-self-center">Hapus Pengirim</h5>'
                 );

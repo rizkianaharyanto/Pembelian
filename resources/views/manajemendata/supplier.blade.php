@@ -67,6 +67,7 @@ endsection -->
             // });
             if (id == "details") {
                 $('#lebarmodal').removeClass('modal-xl');
+                $('#footermodal').addClass('modal-footer');
                 $('#judulmodal').html(
                     '<i class="fas fa-user-circle mr-4" style="font-size:50px;color:#00BFA6;"></i> ' +
                     '<h5 id = "nama_supplier" class = "align-self-center"> Supplier ' + datanya[0].nama_supplier + '</h5>'
@@ -94,6 +95,7 @@ endsection -->
                 );
             } else if (id == "edit") {
                 $('#lebarmodal').removeClass('modal-xl');
+                $('#footermodal').empty();
                 $('#judulmodal').html(
                     '<h5 class="align-self-center">Edit Supplier ' + datanya[0].nama_supplier + '</h5>'
                 );
@@ -123,9 +125,9 @@ endsection -->
                     '</div>' +
                     '</form>'
                 );
-                $('#footermodal').removeClass('modal-footer');
             } else if (id == "delete") {
                 $('#lebarmodal').removeClass('modal-xl');
+                $('#footermodal').addClass('modal-footer');
                 $('#judulmodal').html(
                     '<h5 class="align-self-center">Hapus Supplier</h5>'
                 );
