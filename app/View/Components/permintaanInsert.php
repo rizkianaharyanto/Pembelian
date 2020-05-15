@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Modal extends Component
+class permintaanInsert extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class Modal extends Component
      */
     public function render()
     {
-        return view('components.modal');
+        return view('components.permintaan-insert');
     }
 }
