@@ -27,33 +27,52 @@
                 <span></span>
             </i>
         </a>
-        <a id="edit" data-toggle="modal" data-target="#edit">
+        <a id="edit" data-toggle="modal" data-target="#edit-{{$faktur->id }}" value="">
             <i onmouseover="tulisan()" style="cursor: pointer;" class="fas fa-edit">
                 <span></span>
             </i>
         </a>
-        <a id="delete" data-toggle="modal" data-target="#delete">
+        <a id="delete" data-toggle="modal" data-target="#delete-{{$faktur->id }}">
             <i onmouseover="tulisan()" style="cursor: pointer;" class="fas fa-trash">
                 <span></span>
             </i>
         </a>
     </td>
 </tr>
+
+<x-modal id="details" class="modal-xl">
+    <x-slot name="body">
+
+    </x-slot>
+</x-modal>
+
+@php
+$delete = "delete-".$faktur->id
+@endphp
+<x-modal :id="$delete">
+    <x-slot name="title">
+        <h5 class="align-self-center">Hapus Faktur</h5>
+    </x-slot>
+    <x-slot name="body">
+        <x-faktur-delete :id="$faktur->id" />
+    </x-slot>
+</x-modal>
+
+@php
+$edit = "edit-".$faktur->id
+@endphp
+<x-modal :id="$edit" class="modal-xl">
+    <x-slot name="title">
+        <h5 class="align-self-center">Edit Faktur {{ $faktur->kode_faktur }}</h5>
+    </x-slot>
+    <x-slot name="body">
+        <x-faktur-edit :id="$faktur->id" />
+    </x-slot>
+</x-modal>
 @endforeach
 
 <x-faktur-insert />
 
-<x-modal id="details" class="modal-xl">
-    <x-slot name="body">
-        isi modal details
-    </x-slot>
-</x-modal>
-
-
-<x-faktur-edit :id="$faktur->id" />
-
-
-<x-faktur-delete />
 
 
 @endsection

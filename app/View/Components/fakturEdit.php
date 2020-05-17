@@ -6,6 +6,7 @@ use Illuminate\View\Component;
 use App\Barang;
 use App\Faktur;
 use App\Gudang;
+use App\Supplier;
 
 class fakturEdit extends Component
 {
@@ -27,18 +28,18 @@ class fakturEdit extends Component
      */
     public function render()
     {
+        // dd($this->kode);
         return view('components.faktur-edit');
     }
-
-    // public function getone($id)
-    // {
-    //     $getone = Faktur::find($id);
-    //     return redirect('/fakturs', $getone);
-    // }
 
     public function faktur()
     {
         return Faktur::find($this->id);
+    }
+
+    public function suppliers()
+    {
+        return Supplier::get();
     }
 
     public function gudangs()

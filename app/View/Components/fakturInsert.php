@@ -4,6 +4,7 @@ namespace App\View\Components;
 
 use App\Barang;
 use App\Gudang;
+use App\Supplier;
 use Illuminate\View\Component;
 
 class fakturInsert extends Component
@@ -31,6 +32,11 @@ class fakturInsert extends Component
     public function gudangs()
     {
         return Gudang::get();
+    }
+
+    public function suppliers()
+    {
+        return Supplier::get();
     }
 
     public function barangs()

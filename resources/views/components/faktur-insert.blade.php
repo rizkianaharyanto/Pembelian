@@ -36,11 +36,9 @@
                                 <div class="form-group">
                                     <label for="nama_supplier">Supplier</label>
                                     <select class="form-control" id="nama_supplier">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                        @foreach ($suppliers as $supplier)
+                                        <option>{{ $supplier->nama_supplier }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -58,7 +56,7 @@
                             </form>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                <button class="btn btn-primary" onclick="stepperinsert.next()">Next</button>
+                                <button class="btn btn-primary" onclick="stepperinsert.next()">Selanjutnya</button>
                             </div>
                         </div>
 
@@ -98,24 +96,24 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                <button class="btn btn-primary" onclick="stepperinsert.previous()">Previous</button>
-                                <button class="btn btn-primary" onclick="stepperinsert.next()">Next</button>
+                                <button class="btn btn-primary" onclick="stepperinsert.previous()">Sebelumnya</button>
+                                <button class="btn btn-primary" onclick="stepperinsert.next()">Selanjutnya</button>
                             </div>
                         </div>
                         <div id="test-l-3" class="content">
                             <form>
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Diskon</label>
-                                    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="">
+                                    <label for="diskon">Diskon</label>
+                                    <input type="number" class="form-control" id="diskon" placeholder="">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Biaya lain</label>
-                                    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="">
+                                    <label for="biaya_lain">Biaya lain</label>
+                                    <input type="number" class="form-control" id="biaya_lain" placeholder="">
                                 </div>
                             </form>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                <button class="btn btn-primary" onclick="stepperinsert.previous()">Previous</button>
+                                <button class="btn btn-primary" onclick="stepperinsert.previous()">Sebelumnya</button>
                                 <button type="submit" class="btn btn-primary">Tambah</button>
                             </div>
                         </div>
@@ -135,23 +133,11 @@
                 console.warn('shown.bs-stepper', event)
             })
 
-            // var formbaranginsert = $('#formbaranginsert').html();
-            // // var lbl = $('#lbl').html();
-            // console.log(formbaranginsert)
-            // // console.log(lbl)
-            // $('#tambahbaranginsert').click(function() {
-            //     console.log('klik');
-            //     $('#formbaranginsert').append(formbaranginsert);
-            //     // $('#formbaranginsert').append(lbl);
-            // });
-
             function green(x) {
-                // x.style.color = "green";
                 x.className = "alert mt-3 alert-secondary mb-0 p-1";
             }
 
             function grey(x) {
-                // x.style.color = "grey";
                 x.className = "alert mt-3 mb-0 p-1 alert-primary";
             }
 
