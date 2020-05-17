@@ -41,14 +41,7 @@
 </tr>
 @endforeach
 
-<x-modal id="insert" class="modal-xl">
-    <x-slot name="title">
-        <h5 class="align-self-center">Tambah Faktur</h5>
-    </x-slot>
-    <x-slot name="body">
-        <x-faktur-insert />
-    </x-slot>
-</x-modal>
+<x-faktur-insert />
 
 <x-modal id="details" class="modal-xl">
     <x-slot name="body">
@@ -57,24 +50,11 @@
 </x-modal>
 
 
-<x-modal id="edit" class="modal-xl">
-    <x-slot name="title">
-        <h5 class="align-self-center">Edit Faktur</h5>
-    </x-slot>
-    <x-slot name="body">
-        <x-faktur-edit />
-    </x-slot>
-</x-modal>
+<x-faktur-edit :id="$faktur->id" />
 
 
-<x-modal id="delete">
-    <x-slot name="title">
-        <h5 class="align-self-center">Hapus Faktur</h5>
-    </x-slot>
-    <x-slot name="body">
-        <p>Apakah kamu yakin ingin menghapus Faktur A ?</p>
-    </x-slot>
-</x-modal>
+<x-faktur-delete />
+
 
 @endsection
 
@@ -85,4 +65,3 @@
     </i>
 </a>
 @endsection
-

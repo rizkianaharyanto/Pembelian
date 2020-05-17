@@ -2,11 +2,9 @@
 
 namespace App\View\Components;
 
-use App\Barang;
-use App\Gudang;
 use Illuminate\View\Component;
 
-class fakturInsert extends Component
+class fakturDelete extends Component
 {
     /**
      * Create a new component instance.
@@ -25,16 +23,6 @@ class fakturInsert extends Component
      */
     public function render()
     {
-        return view('components.faktur-insert',);
-    }
-    
-    public function gudangs()
-    {
-        return Gudang::get();
-    }
-
-    public function barangs()
-    {
-        return Barang::get();
+        return view('components.faktur-delete');
     }
 }

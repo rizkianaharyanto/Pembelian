@@ -5,18 +5,19 @@ namespace App\View\Components;
 use Illuminate\View\Component;
 use App\Barang;
 use App\Faktur;
-
+use App\Gudang;
 
 class fakturEdit extends Component
 {
+    public $id;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($id)
     {
-        //
+        $this->id = $id;
     }
 
     /**
@@ -26,11 +27,27 @@ class fakturEdit extends Component
      */
     public function render()
     {
-        $fakturs=Faktur::get();
-        $barangs=Barang::get();
-        return view('components.faktur-edit', [
-            'fakturs' => $fakturs,
-            'barangs' => $barangs
-        ]);
+        return view('components.faktur-edit');
+    }
+
+    // public function getone($id)
+    // {
+    //     $getone = Faktur::find($id);
+    //     return redirect('/fakturs', $getone);
+    // }
+
+    public function faktur()
+    {
+        return Faktur::find($this->id);
+    }
+
+    public function gudangs()
+    {
+        return Gudang::get();
+    }
+
+    public function barangs()
+    {
+        return Barang::get();
     }
 }
