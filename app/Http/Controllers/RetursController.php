@@ -15,7 +15,7 @@ class RetursController extends Controller
     public function index()
     {
         $returs = Retur::all();
-        return view('pembelian.retur', compact('returs'));
+        return view('pembelian.retur.retur', compact('returs'));
     }
 
     /**
@@ -81,6 +81,7 @@ class RetursController extends Controller
      */
     public function destroy(Retur $retur)
     {
-        //
+        Retur::destroy($retur->id);
+        return redirect('/returs');
     }
 }

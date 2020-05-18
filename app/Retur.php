@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Retur extends Model
 {
+    use SoftDeletes;
     public function jurnal()
     {
         return $this->belongsTo('App\Jurnal');

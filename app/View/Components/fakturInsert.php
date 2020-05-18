@@ -26,7 +26,7 @@ class fakturInsert extends Component
      */
     public function render()
     {
-        return view('components.faktur-insert',);
+        return view('components..faktur.faktur-insert',);
     }
     
     public function gudangs()

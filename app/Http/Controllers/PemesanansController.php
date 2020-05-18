@@ -15,7 +15,7 @@ class PemesanansController extends Controller
     public function index()
     {
         $pemesanans = Pemesanan::all();
-        return view('pembelian.pemesanan', compact('pemesanans'));
+        return view('pembelian.pemesanan.pemesanan', compact('pemesanans'));
     }
 
     /**
@@ -81,6 +81,7 @@ class PemesanansController extends Controller
      */
     public function destroy(Pemesanan $pemesanan)
     {
-        //
+        Pemesanan::destroy($pemesanan->id);
+        return redirect('/pemesanans');
     }
 }

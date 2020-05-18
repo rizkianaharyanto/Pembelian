@@ -29,7 +29,7 @@ class fakturEdit extends Component
     public function render()
     {
         // dd($this->kode);
-        return view('components.faktur-edit');
+        return view('components.faktur.faktur-edit');
     }
 
     public function faktur()

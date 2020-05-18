@@ -25,7 +25,7 @@ class fakturDelete extends Component
      */
     public function render()
     {
-        return view('components.faktur-delete');
+        return view('components.faktur.faktur-delete');
     }
 
     public function faktur()

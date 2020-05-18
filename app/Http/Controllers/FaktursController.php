@@ -15,7 +15,7 @@ class FaktursController extends Controller
     public function index()
     {
         $fakturs = Faktur::all();
-        return view('pembelian.faktur', compact('fakturs'));
+        return view('pembelian.faktur.faktur', compact('fakturs'));
     }
 
     /**
@@ -25,7 +25,7 @@ class FaktursController extends Controller
      */
     public function create()
     {
-        //
+        return view('pembelian.faktur.fakturinsert');
     }
 
     /**
@@ -58,7 +58,7 @@ class FaktursController extends Controller
      */
     public function edit(Faktur $faktur)
     {
-        //
+        return view('pembelian.faktur.fakturedit', compact('faktur'));
     }
 
     /**

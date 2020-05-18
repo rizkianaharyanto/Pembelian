@@ -15,7 +15,7 @@ class PermintaansController extends Controller
     public function index()
     {
         $permintaans = Permintaan::all();
-        return view('pembelian.permintaan', compact('permintaans'));
+        return view('pembelian.permintaan.permintaan', compact('permintaans'));
     }
 
     /**
@@ -81,6 +81,7 @@ class PermintaansController extends Controller
      */
     public function destroy(Permintaan $permintaan)
     {
-        //
+        Permintaan::destroy($permintaan->id);
+        return redirect('/permintaans');
     }
 }

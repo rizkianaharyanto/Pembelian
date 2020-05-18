@@ -15,7 +15,7 @@ class PenerimaansController extends Controller
     public function index()
     {
         $penerimaans = Penerimaan::all();
-        return view('pembelian.penerimaan', compact('penerimaans'));
+        return view('pembelian.penerimaan.penerimaan', compact('penerimaans'));
     }
 
     /**
@@ -81,6 +81,7 @@ class PenerimaansController extends Controller
      */
     public function destroy(Penerimaan $penerimaan)
     {
-        //
+        Penerimaan::destroy($penerimaan->id);
+        return redirect('/penerimaans');
     }
 }
