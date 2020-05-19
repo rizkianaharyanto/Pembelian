@@ -58,3 +58,10 @@ $delete = "delete-".$permintaan->id
 @endforeach
 @endsection
 
+@section('tambah')
+<a href="/permintaans/create">
+    <i class="fas fa-plus mr-4" style="font-size:30px;color:#00BFA6; cursor: pointer;">
+        <span></span>
+    </i>
+</a>
+@endsection

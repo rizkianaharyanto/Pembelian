@@ -59,3 +59,10 @@ $delete = "delete-".$penerimaan->id
 @endsection
 
 
+@section('tambah')
+<a href="/penerimaans/create">
+    <i class="fas fa-plus mr-4" style="font-size:30px;color:#00BFA6; cursor: pointer;">
+        <span></span>
+    </i>
+</a>
+@endsection

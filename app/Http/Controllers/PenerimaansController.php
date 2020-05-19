@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Penerimaan;
+use App\Barang;
+use App\Gudang;
+use App\Supplier;
 use Illuminate\Http\Request;
 
 class PenerimaansController extends Controller
@@ -25,7 +28,11 @@ class PenerimaansController extends Controller
      */
     public function create()
     {
-        //
+        return view('pembelian.penerimaan.penerimaaninsert', [
+            'suppliers' => Supplier::all(),
+            'barangs' => Barang::all(),
+            'gudangs'=> Gudang::all()
+        ]);
     }
 
     /**

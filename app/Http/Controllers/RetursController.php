@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Retur;
+use App\Barang;
+use App\Gudang;
+use App\Supplier;
 use Illuminate\Http\Request;
 
 class RetursController extends Controller
@@ -25,7 +28,11 @@ class RetursController extends Controller
      */
     public function create()
     {
-        //
+        return view('pembelian.retur.returinsert', [
+            'suppliers' => Supplier::all(),
+            'barangs' => Barang::all(),
+            'gudangs'=> Gudang::all()
+        ]);
     }
 
     /**

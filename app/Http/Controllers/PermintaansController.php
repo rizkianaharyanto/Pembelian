@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Permintaan;
+use App\Barang;
+use App\Gudang;
+use App\Supplier;
 use Illuminate\Http\Request;
 
 class PermintaansController extends Controller
@@ -25,7 +28,11 @@ class PermintaansController extends Controller
      */
     public function create()
     {
-        //
+        return view('pembelian.permintaan.permintaaninsert', [
+            'suppliers' => Supplier::all(),
+            'barangs' => Barang::all(),
+            'gudangs'=> Gudang::all()
+        ]);
     }
 
     /**

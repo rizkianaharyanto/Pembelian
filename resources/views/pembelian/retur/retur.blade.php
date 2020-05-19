@@ -59,3 +59,10 @@ $delete = "delete-".$retur->id
 @endsection
 
 
+@section('tambah')
+<a href="/returs/create">
+    <i class="fas fa-plus mr-4" style="font-size:30px;color:#00BFA6; cursor: pointer;">
+        <span></span>
+    </i>
+</a>
+@endsection

@@ -3,17 +3,19 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use App\Permintaan;
 
-class permintaanInsert extends Component
+class permintaanDelete extends Component
 {
+    public $id;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($id)
     {
-        //
+        $this->id = $id;
     }
 
     /**
@@ -23,6 +25,11 @@ class permintaanInsert extends Component
      */
     public function render()
     {
-        return view('components.permintaan-insert');
+        return view('components.permintaan.permintaan-delete');
+    }
+
+    public function permintaan()
+    {
+        return Permintaan::find($this->id);
     }
 }
