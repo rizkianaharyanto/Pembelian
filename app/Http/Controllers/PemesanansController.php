@@ -6,6 +6,7 @@ use App\Pemesanan;
 use App\Barang;
 use App\Gudang;
 use App\Supplier;
+use App\Permintaan;
 use Illuminate\Http\Request;
 
 class PemesanansController extends Controller
@@ -28,8 +29,11 @@ class PemesanansController extends Controller
      */
     public function create()
     {
+        // $permintaans = Permintaan::all();
+        // dd($permintaans);
         return view('pembelian.pemesanan.pemesananinsert', [
             'suppliers' => Supplier::all(),
+            'permintaans' => Permintaan::all(),
             'barangs' => Barang::all(),
             'gudangs'=> Gudang::all()
         ]);

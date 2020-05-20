@@ -6,6 +6,6 @@
 
 @section('isi')
 
-<x-faktur-edit :id="$faktur->id" />
+
 
 @endsection

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Faktur;
+use App\Penerimaan;
+use App\Barang;
+use App\Gudang;
+use App\Supplier;
 use Illuminate\Http\Request;
 
 class FaktursController extends Controller
@@ -25,7 +29,12 @@ class FaktursController extends Controller
      */
     public function create()
     {
-        return view('pembelian.faktur.fakturinsert');
+        return view('pembelian.faktur.fakturinsert', [
+            'penerimaans' => Penerimaan::all(),
+            'suppliers' => Supplier::all(),
+            'barangs' => Barang::all(),
+            'gudangs'=> Gudang::all()
+        ]);
     }
 
     /**

@@ -34,33 +34,51 @@
         </div>
         <div class="bs-stepper-content">
             <div id="test-l-1" class="content">
-                <form style="height: 58vh;">
-                    <div class="form-group">
-                        <label for="nama_supplier">Supplier</label>
-                        <select class="form-control" id="nama_supplier">
-                            @foreach ($suppliers as $supplier)
-                            <option>{{ $supplier->nama_supplier }}</option>
-                            @endforeach
-                        </select>
+                <form style="height: 58vh;overflow: auto; color:black" class="mt-2">
+                    <div class="form-group row mx-5 mb-5">
+                        <label class="col-sm-3 col-form-label" for="nama_permintaan">Permintaan</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="nama_permintaan">
+                                @foreach ($permintaans as $permintaan)
+                                <option>{{ $permintaan->kode_permintaan }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="gudang">Gudang</label>
-                        <select class="form-control" id="gudang">
-                            @foreach ($gudangs as $gudang)
-                            <option>{{ $gudang->nama_gudang }}</option>
-                            @endforeach
-                        </select>
+                    <div class="form-group row mx-5 mb-5">
+                        <label class="col-sm-3 col-form-label" for="nama_supplier">Supplier</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="nama_supplier">
+                                @foreach ($suppliers as $supplier)
+                                <option>{{ $supplier->nama_supplier }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="tanggal">Tanggal</label>
-                        <input type="date" class="form-control" id="tanggal" placeholder="">
+                    <div class="form-group row mx-5 mb-5">
+                        <label class="col-sm-3 col-form-label" for="gudang">Gudang</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="gudang">
+                                @foreach ($gudangs as $gudang)
+                                <option>{{ $gudang->nama_gudang }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="mata-uang">Mata Uang</label>
-                        <select class="form-control" id="mata-uang">
-                            <option>IDR</option>
-                            <option>$</option>
-                        </select>
+                    <div class="form-group row mx-5 mb-5">
+                        <label class="col-sm-3 col-form-label" for="tanggal">Tanggal</label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" id="tanggal" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row mx-5 mb-5">
+                        <label class="col-sm-3 col-form-label" for="mata-uang">Mata Uang</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="mata-uang">
+                                <option>IDR</option>
+                                <option>$</option>
+                            </select>
+                        </div>
                     </div>
                 </form>
                 <div class="modal-footer">
@@ -73,7 +91,7 @@
 
             <div id="test-l-2" class="content">
                 <form style="overflow: auto; height: 52vh;" id="formbarang">
-                    <div class="form-row mx-3" id="isiformbarang0">
+                    <div class="form-row mx-5" id="isiformbarang0">
                         <div class="form-group col-md-3">
                             <label for="nama_barang" id="lbl">Barang</label>
                             <select class="form-control" id="nama_barang">
@@ -84,19 +102,29 @@
                         </div>
                         <div class="form-group col-md-1">
                             <label for="jumlah_barang">QTY</label>
-                            <input type="number" class="form-control" id="jumlah_barang" placeholder="">
+                            <input type="number" class="form-control" id="jumlah_barang" placeholder="-">
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-1">
                             <label for="satuan_unit">Unit</label>
                             <input type="number" class="form-control" id="unit" disabled>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                             <label for="harga">Harga Satuan</label>
-                            <input type="number" class="form-control" id="harga" placeholder="">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Rp</div>
+                                </div>
+                                <input type="number" class="form-control" id="harga" placeholder="-">
+                            </div>
                         </div>
                         <div class="form-group col-md-3">
                             <label for="total">Total</label>
-                            <input type="number" class="form-control" id="total" disabled>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Rp</div>
+                                </div>
+                                <input type="number" class="form-control" id="total" disabled>
+                            </div>
                         </div>
                         <div class="form-group col-md-1">
                             <p style="color: transparent">#</p>
@@ -114,7 +142,12 @@
                 <div class="modal-footer">
                     <div class="d-flex mr-auto">
                         <p class="m-2">Total </p>
-                        <input style="width:26vw" type="number" name="total" id="total_harga_barang" disabled>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Rp</div>
+                            </div>
+                            <input style="width:26vw" type="number" name="total_harga_barang" id="total_harga_barang" disabled>
+                        </div>
                     </div>
                     <a href="/pemesanans">
                         <button type="button" class="btn btn-secondary">Batal</button>
@@ -124,20 +157,47 @@
                 </div>
             </div>
             <div id="test-l-3" class="content">
-                <form style="height: 58vh;">
-                    <div class="form-group">
-                        <label for="diskon">Diskon</label>
-                        <input type="number" class="form-control" id="diskon" placeholder="">
+                <form style="height: 58vh;overflow:auto" class="mt-2">
+                    <div class="form-group row mx-5 mb-5">
+                        <label class="col-sm-3 col-form-label" for="diskon">Diskon</label>
+                        <div class="col-sm-9">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">%</div>
+                                </div>
+                                <input type="number" class="form-control" id="diskon" placeholder="-">
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="biaya_lain">Biaya lain</label>
-                        <input type="number" class="form-control" id="biaya_lain" placeholder="">
+                    <div class="form-group row mx-5 mb-5">
+                        <label class="col-sm-3 col-form-label" for="biaya_lain">Biaya lain</label>
+                        <div class="col-sm-9">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Rp</div>
+                                </div>
+                                <input type="number" class="form-control" id="biaya_lain" placeholder="-">
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="termin_pembayaran">Termin Pembayaran</label>
-                        <select class="form-control" id="termin_pembayaran">
-                            <option>0 % 0 Net 0</option>
-                        </select>
+                    <div class="form-group row mx-5 mb-5">
+                        <label class="col-sm-3 col-form-label" for="termin_pembayaran">Termin Pembayaran</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="termin_pembayaran">
+                                <option>0 % 0 Net 0</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row m-5 d-flex justify-content-end">
+                        <label class="col-sm-3 col-form-label" for="total_harga_keseluruhan">Total</label>
+                        <div class="col-sm-9">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Rp</div>
+                                </div>
+                                <input style="width:26vw" type="number" name="total_harga_keseluruhan" id="total_harga_keseluruhan" disabled>
+                            </div>
+                        </div>
                     </div>
                 </form>
                 <div class="modal-footer">
