@@ -9,7 +9,6 @@
     <th>Kode Permintaan</th>
     <th>Supplier</th>
     <th>Tanggal</th>
-    <th>Gudang</th>
     <th>Total</th>
     <th style="column-width: 80px">Aksi</th>
 </tr>
@@ -21,7 +20,6 @@
     <td>{{ $permintaan->kode_permintaan }}</td>
     <td>Supplier</td>
     <td>{{ $permintaan->tanggal }}</td>
-    <td>Gudang</td>
     <td>{{ $permintaan->total_harga }}</td>
     <td class="d-flex justify-content-between">
         <a id="details" href="/permintaans/create">

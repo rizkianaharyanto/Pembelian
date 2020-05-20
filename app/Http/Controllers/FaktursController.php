@@ -7,6 +7,7 @@ use App\Penerimaan;
 use App\Barang;
 use App\Gudang;
 use App\Supplier;
+use App\Akun;
 use Illuminate\Http\Request;
 
 class FaktursController extends Controller
@@ -33,7 +34,8 @@ class FaktursController extends Controller
             'penerimaans' => Penerimaan::all(),
             'suppliers' => Supplier::all(),
             'barangs' => Barang::all(),
-            'gudangs'=> Gudang::all()
+            'gudangs'=> Gudang::all(),
+            'akuns'=> Akun::all()
         ]);
     }
 

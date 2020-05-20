@@ -177,7 +177,7 @@
                     </form>
                     <div class="alert alert-primary mt-3 mb-0 p-1" id="tambahpenerimaan" onmouseover="green(this)" onmouseout="grey(this)" style="cursor: pointer; font-size:15px;">
                         <i class="fas fa-plus d-flex justify-content-center">
-                            <span class="mx-2">Tambah penerimaan</span>
+                            <span class="mx-2">Tambah Penerimaan</span>
                         </i>
                     </div>
                 </div>
@@ -230,18 +230,38 @@
                             </select>
                         </div>
                     </div>
-
+                    <div class="form-group row mx-5 mb-5" id="uang-muka-form">
+                        <label class="col-sm-3 col-form-label" for="uang_muka">Uang Muka</label>
+                        <div class="col-sm-9">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Rp</div>
+                                </div>
+                                <input type="number" class="form-control" id="uang_muka" placeholder="-">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mx-5 mb-5" id="akun-form" style="display: none">
+                        <label class="col-sm-3 col-form-label" for="akun">Akun</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="akun">
+                                @foreach ($akuns as $akun)
+                                <option>{{ $akun->nama_akun }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                 </form>
                 <div class="modal-footer">
                     <div class="d-flex mr-auto">
-                        <p class="m-2">Total </p>
+                        <p class="m-2" id="sisa">Sisa </p>
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">Rp</div>
                             </div>
                             <input style="width:26vw" type="number" name="total_harga_keseluruhan" id="total_harga_keseluruhan" disabled>
                         </div>
-                        <input class="ml-5 mt-2" type="checkbox" onclick="checkLunas(this)" />
+                        <input class="ml-4 mt-2" type="checkbox" onclick="checkLunas(this)" />
                         <h5 class="ml-2">Lunas</h5>
                     </div>
                     <a href="/fakturs">
@@ -304,8 +324,14 @@
     function checkLunas(x) {
         if ($(x).attr('value') == "1") {
             $(x).removeAttr('value')
+            $("#uang-muka-form").removeAttr('style')
+            $('#sisa').html('Sisa')
+            $("#akun-form").css('display', 'none')
         } else {
             $(x).attr('value', '1')
+            $("#akun-form").removeAttr('style')
+            $("#sisa").html('Total')
+            $("#uang-muka-form").css('display', 'none')
         }
     }
 

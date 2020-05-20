@@ -67,6 +67,9 @@ endsection -->
                     '<label for="telp_pengirim">Telp</label>' +
                     '<input type="number" class="form-control" id="telp_pengirim" name="telp_pengirim" placeholder="' + datanya[0].telp_pengirim + '">' +
                     '</div>' +
+                    '<label for="nama_supplier">Supplier</label>' +
+                    '<input type="text" class="form-control" id="nama_supplier" name="nama_supplier" placeholder="' + datanya[0].supplier_id + '">' +
+                    '</div>' +
                     '<div class="form-group">' +
                     '<label for="email_pengirim">Email</label>' +
                     '<input type="email" class="form-control" id="email_pengirim" name="email_pengirim" placeholder="' + datanya[0].email_pengirim + '">' +
@@ -101,7 +104,7 @@ endsection -->
                     '</div>' +
                     '<div class="form-group modal-footer">' +
                     '<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>' +
-                    '<button type="submit" class="btn btn-primary">Simpan</button>' + 
+                    '<button type="submit" class="btn btn-primary">Simpan</button>' +
                     '</div>' +
                     '</form>'
                 );
@@ -155,6 +158,14 @@ endsection -->
     <div class="form-group">
         <label for="nama_pengirim">Nama pengirim</label>
         <input type="text" class="form-control" id="nama_pengirim" name="nama_pengirim" placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="nama_supplier">Supplier</label>
+        <select class="form-control" id="nama_supplier">
+            @foreach ($suppliers as $supplier)
+            <option>{{ $supplier->nama_supplier }}</option>
+            @endforeach
+        </select>
     </div>
     <div class="form-group">
         <label for="telp_pengirim">Telp</label>

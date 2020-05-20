@@ -9,7 +9,6 @@
     <th>Kode Pemesanan</th>
     <th>Supplier</th>
     <th>Tanggal</th>
-    <th>Gudang</th>
     <th>Total</th>
     <th style="column-width: 80px">Aksi</th>
 </tr>
@@ -21,7 +20,6 @@
     <td>{{ $pemesanan->kode_pemesanan }}</td>
     <td>Supplier</td>
     <td>{{ $pemesanan->tanggal }}</td>
-    <td>Gudang</td>
     <td>{{ $pemesanan->total_harga }}</td>
     <td class="d-flex justify-content-between">
         <a id="details" href="/pemesanans/create">

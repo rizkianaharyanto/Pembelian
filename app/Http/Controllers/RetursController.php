@@ -6,6 +6,7 @@ use App\Retur;
 use App\Barang;
 use App\Gudang;
 use App\Supplier;
+use App\Akun;
 use Illuminate\Http\Request;
 
 class RetursController extends Controller
@@ -31,7 +32,8 @@ class RetursController extends Controller
         return view('pembelian.retur.returinsert', [
             'suppliers' => Supplier::all(),
             'barangs' => Barang::all(),
-            'gudangs'=> Gudang::all()
+            'gudangs'=> Gudang::all(),
+            'akuns'=> Akun::all(),
         ]);
     }
 

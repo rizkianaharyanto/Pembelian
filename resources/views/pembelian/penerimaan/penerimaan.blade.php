@@ -9,7 +9,6 @@
     <th>Kode Penerimaan</th>
     <th>Supplier</th>
     <th>Tanggal</th>
-    <th>Gudang</th>
     <th>Total</th>
     <th style="column-width: 80px">Aksi</th>
 </tr>
@@ -21,7 +20,6 @@
     <td>{{ $penerimaan->kode_penerimaan }}</td>
     <td>Supplier</td>
     <td>{{ $penerimaan->tanggal }}</td>
-    <td>Gudang</td>
     <td>{{ $penerimaan->total_harga }}</td>
     <td class="d-flex justify-content-between">
         <a id="details" href="/penerimaans/create">

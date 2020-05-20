@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Pengirim;
+use App\Supplier;
 use Illuminate\Http\Request;
 
 class PengirimsController extends Controller
@@ -15,7 +16,10 @@ class PengirimsController extends Controller
     public function index()
     {
         $pengirims = Pengirim::all();
-        return view('manajemendata.pengirim', compact('pengirims'));
+        return view('manajemendata.pengirim', [
+            'pengirims' => $pengirims,
+            'suppliers' => Supplier::all()
+        ]);
     }
 
     /**
@@ -25,7 +29,9 @@ class PengirimsController extends Controller
      */
     public function create()
     {
-        //
+        // return view('manajemendata.pengirim', [
+        //     'suppliers' => Supplier::all()
+        // ]);
     }
 
     /**
