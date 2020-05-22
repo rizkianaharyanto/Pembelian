@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::get('/ambilgudang', 'GudangsController@ambil');
 Route::get('/ambilbarang', 'BarangsController@ambil');
+Route::post('/savebarang', 'PermintaansController@savebarang');
 
 Route::resources([
     'suppliers' => 'SuppliersController',

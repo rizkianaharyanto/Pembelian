@@ -15,10 +15,10 @@ class CreatePermintaanDetailsTable extends Migration
     {
         Schema::create('permintaan_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('kode_detailpermintaan');
-            $table->double('pajak', 8, 3);
-            $table->integer('jumlah_barang');
-            $table->integer('harga');
+            $table->string('kode_detailpermintaan')->nullable();
+            $table->double('pajak', 8, 3)->nullable();
+            $table->integer('jumlah_barang')->nullable();
+            $table->integer('harga')->nullable();
             $table->timestamps();
             //fk
             $table->bigInteger('permintaan_id')->nullable();

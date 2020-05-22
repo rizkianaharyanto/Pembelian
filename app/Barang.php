@@ -13,7 +13,7 @@ class Barang extends Model
     
     public function permintaans()
     {
-        return $this->belongsToMany('App\Permintaan', 'permintaan_details');
+        return $this->belongsToMany('App\Permintaan', 'permintaan_details')->withPivot('jumlah_barang', 'harga');
     }
 
     public function pemesanans()
