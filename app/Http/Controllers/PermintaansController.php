@@ -65,7 +65,12 @@ class PermintaansController extends Controller
      */
     public function edit(Permintaan $permintaan)
     {
-        //
+        return view('pembelian.permintaan.permintaanedit', [
+            'permintaan' => $permintaan,
+            'suppliers' => Supplier::all(),
+            'barangs' => Barang::all(),
+            'gudangs'=> Gudang::all()
+        ]);
     }
 
     /**

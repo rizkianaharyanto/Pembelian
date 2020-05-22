@@ -69,7 +69,14 @@ class FaktursController extends Controller
      */
     public function edit(Faktur $faktur)
     {
-        return view('pembelian.faktur.fakturedit', compact('faktur'));
+        return view('pembelian.faktur.fakturedit', [
+            'faktur' => $faktur,
+            'penerimaans' => Penerimaan::all(),
+            'suppliers' => Supplier::all(),
+            'barangs' => Barang::all(),
+            'gudangs'=> Gudang::all(),
+            'akuns'=> Akun::all()
+        ]);
     }
 
     /**

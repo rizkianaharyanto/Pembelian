@@ -48,7 +48,7 @@
                     <div class="form-group row mx-5 mb-5">
                         <label class="col-sm-3 col-form-label" for="gudang">Gudang</label>
                         <div class="col-sm-9">
-                            <select class="form-control" id="gudang">
+                            <select class="form-control" id="gudang" value="{{$permintaan->gudang}}">
                                 @foreach ($gudangs as $gudang)
                                 <option>{{ $gudang->nama_gudang }}</option>
                                 @endforeach
@@ -58,7 +58,7 @@
                     <div class="form-group row mx-5 mb-5">
                         <label class="col-sm-3 col-form-label" for="tanggal">Tanggal</label>
                         <div class="col-sm-9">
-                            <input type="date" class="form-control" id="tanggal" placeholder="">
+                            <input type="date" class="form-control" id="tanggal" value="{{$permintaan->tanggal}}">
                         </div>
                     </div>
                     <div class="form-group row mx-5 mb-5">

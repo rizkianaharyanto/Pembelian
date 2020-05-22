@@ -69,7 +69,13 @@ class PemesanansController extends Controller
      */
     public function edit(Pemesanan $pemesanan)
     {
-        //
+        return view('pembelian.pemesanan.pemesananedit', [
+            'pemesanan' => $pemesanan,
+            'suppliers' => Supplier::all(),
+            'permintaans' => Permintaan::all(),
+            'barangs' => Barang::all(),
+            'gudangs'=> Gudang::all()
+        ]);
     }
 
     /**

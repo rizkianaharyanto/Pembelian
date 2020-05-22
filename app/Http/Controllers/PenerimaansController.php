@@ -65,7 +65,12 @@ class PenerimaansController extends Controller
      */
     public function edit(Penerimaan $penerimaan)
     {
-        //
+        return view('pembelian.penerimaan.penerimaanedit', [
+            'penerimaan' => $penerimaan,
+            'suppliers' => Supplier::all(),
+            'barangs' => Barang::all(),
+            'gudangs'=> Gudang::all()
+        ]);
     }
 
     /**

@@ -42,7 +42,14 @@ class PengirimsController extends Controller
      */
     public function store(Request $request)
     {
-        Pengirim::create($request->all());
+        // Pengirim::create($request->all());
+        $pengirim = new Pengirim;
+        $pengirim->kode_pengirim = $request->kode_pengirim;
+        $pengirim->nama_pengirim = $request->nama_pengirim;
+        $pengirim->telp_pengirim = $request->telp_pengirim;
+        $pengirim->email_pengirim = $request->email_pengirim;
+        $pengirim->supplier_id = $request->supplier_id;
+        $pengirim->save();
         return redirect('/pengirims');
     }
 
@@ -83,6 +90,7 @@ class PengirimsController extends Controller
                 'nama_pengirim' => $request->nama_pengirim,
                 'telp_pengirim' => $request->telp_pengirim,
                 'email_pengirim' => $request->email_pengirim,
+                'supplier_id' => $request->supplier_id,
             ]);
 
         return redirect('/pengirims');

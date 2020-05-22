@@ -67,7 +67,13 @@ class RetursController extends Controller
      */
     public function edit(Retur $retur)
     {
-        //
+        return view('pembelian.retur.returedit', [
+            'retur' => $retur,
+            'suppliers' => Supplier::all(),
+            'barangs' => Barang::all(),
+            'gudangs'=> Gudang::all(),
+            'akuns'=> Akun::all()
+        ]);
     }
 
     /**
