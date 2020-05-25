@@ -15,8 +15,8 @@ class CreatePenerimaanDetailsTable extends Migration
     {
         Schema::create('penerimaan_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('kode_detailpenerimaan');
-            $table->double('pajak', 8, 3);
+            $table->string('kode_detailpenerimaan')->nullable();
+            $table->double('pajak', 8, 3)->nullable();
             $table->integer('jumlah_barang');
             $table->integer('harga');
             $table->timestamps();

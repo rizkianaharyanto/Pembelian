@@ -15,8 +15,8 @@ class CreateFakturDetailsTable extends Migration
     {
         Schema::create('faktur_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('kode_detailfaktur');
-            $table->double('pajak', 8, 3);
+            $table->string('kode_detailfaktur')->nullable();
+            $table->double('pajak', 8, 3)->nullable();
             $table->integer('jumlah_barang');
             $table->integer('harga');
             $table->string('transactiom_type')->nullable();

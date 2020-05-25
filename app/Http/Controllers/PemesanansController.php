@@ -47,7 +47,26 @@ class PemesanansController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pemesanan = Pemesanan::create([
+            'kode_pemesanan' => $request->kode_pemesanan,
+            'supplier_id' => $request->supplier_id,
+            'gudang' => $request->gudang,
+            'tanggal' => $request->tanggal,
+            'diskon' => $request->diskon,
+            'biaya_lain' => $request->biaya_lain,
+            'total_jenis_barang' => 3,
+            'total_harga' => 1000,
+            'permintaan_id' => $request->permintaan_id,
+        ]);
+
+        foreach ($request->barang_id as $index => $id) {
+
+            $pemesanan->barangs()->attach($id, [
+                'jumlah_barang' => $request->jumlah_barang[$index],
+                'harga' => $request->harga[$index]
+            ]);
+        }
+        return redirect('/pemesanans');
     }
 
     /**
@@ -87,7 +106,28 @@ class PemesanansController extends Controller
      */
     public function update(Request $request, Pemesanan $pemesanan)
     {
-        //
+        Pemesanan::where('id', $pemesanan->id)
+            ->update([
+                'kode_pemesanan' => $request->kode_pemesanan,
+                'supplier_id' => $request->supplier_id,
+                'gudang' => $request->gudang,
+                'tanggal' => $request->tanggal,
+                'diskon' => $request->diskon,
+                'biaya_lain' => $request->biaya_lain,
+                'total_jenis_barang' => 3,
+                'total_harga' => 1000,
+            ]);
+        foreach ($request->barang_id as $index => $id) {
+            $pemesanan->barangs()->detach($id, [
+                'jumlah_barang' => $request->jumlah_barang[$index],
+                'harga' => $request->harga[$index]
+            ]);
+            $pemesanan->barangs()->attach($id, [
+                'jumlah_barang' => $request->jumlah_barang[$index],
+                'harga' => $request->harga[$index]
+            ]);
+        }
+        return redirect('/pemesanans');
     }
 
     /**

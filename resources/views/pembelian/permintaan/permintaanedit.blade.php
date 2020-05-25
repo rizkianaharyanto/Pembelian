@@ -37,7 +37,7 @@
                 @method('put')
                 @csrf
                 <div id="test-l-1" class="content">
-                    <input type="hidden" id="kode_permintaan" name="kode_permintaan" placeholder="" value="PER">
+                    <input type="hidden" id="kode_permintaan" name="kode_permintaan" placeholder="" value="{{$permintaan->kode_permintaan}}">
                     <div style="height: 58vh;overflow: auto; color:black" class="mt-2">
                         <div class="form-group row mx-5 mb-5">
                             <label class="col-sm-3 col-form-label" for="supplier_id">Supplier</label>
@@ -53,7 +53,7 @@
                         <div class="form-group row mx-5 mb-5">
                             <label class="col-sm-3 col-form-label" for="gudang">Gudang</label>
                             <div class="col-sm-9">
-                                <select class="form-control" id="gudang" name="gudang" value="{{$permintaan->gudang}}">
+                                <select class="form-control" id="gudang" name="gudang">
                                     <option value="">--- Pilih Gudang ---</option>
                                     @foreach ($gudangs as $gudang)
                                     <option value="{{$gudang->id}}" {{$gudang->id == "$permintaan->gudang" ? "selected" : "" }}>{{ $gudang->nama_gudang }}</option>

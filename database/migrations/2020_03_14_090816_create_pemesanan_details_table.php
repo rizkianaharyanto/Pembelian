@@ -15,11 +15,11 @@ class CreatePemesananDetailsTable extends Migration
     {
         Schema::create('pemesanan_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('kode_detailpemesanan');
-            $table->double('pajak', 8, 3);
+            $table->string('kode_detailpemesanan')->nullable();
+            $table->double('pajak', 8, 3)->nullable();
             $table->integer('jumlah_barang');
             $table->integer('harga');
-            $table->integer('barang_belum_diterima');
+            $table->integer('barang_belum_diterima')->nullable();
             $table->timestamps();
             //fk
             $table->bigInteger('pemesanan_id')->nullable();

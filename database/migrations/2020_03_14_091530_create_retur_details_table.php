@@ -15,8 +15,8 @@ class CreateReturDetailsTable extends Migration
     {
         Schema::create('retur_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('kode_detailretur');
-            $table->double('pajak', 8, 3);
+            $table->string('kode_detailretur')->nullable();
+            $table->double('pajak', 8, 3)->nullable();
             $table->integer('jumlah_barang');
             $table->integer('harga');
             $table->timestamps();

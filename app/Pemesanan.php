@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Pemesanan extends Model
 {
     use SoftDeletes;
+    protected $guarded = ['id'];
     public function permintaans()
     {
         return $this->hasMany('App\Permintaan');
@@ -30,6 +31,6 @@ class Pemesanan extends Model
 
     public function barangs()
     {
-        return $this->belongsToMany('App\Barang', 'pemesanan_details');
+        return $this->belongsToMany('App\Barang', 'pemesanan_details')->withTimestamps()->withPivot('jumlah_barang', 'harga');
     }
 }
