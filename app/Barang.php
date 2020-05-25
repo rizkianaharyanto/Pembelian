@@ -23,7 +23,7 @@ class Barang extends Model
 
     public function penerimaans()
     {
-        return $this->belongsToMany('App\Penerimaan', 'penerimaan_details');
+        return $this->belongsToMany('App\Penerimaan', 'penerimaan_details')->withPivot('jumlah_barang', 'harga')->withTimestamps();
     }
 
     public function fakturs()

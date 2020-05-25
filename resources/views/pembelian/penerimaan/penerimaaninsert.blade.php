@@ -33,171 +33,179 @@
             </div>
         </div>
         <div class="bs-stepper-content">
-            <div id="test-l-1" class="content">
-                <form style="height: 58vh;overflow: auto; color:black" class="mt-2">    
-                    <div class="form-group row mx-5 mb-5">
-                        <label class="col-sm-3 col-form-label" for="nama_supplier">Supplier</label>
-                        <div class="col-sm-9">
-                            <select class="form-control" id="nama_supplier">
-                                @foreach ($suppliers as $supplier)
-                                <option>{{ $supplier->nama_supplier }}</option>
-                                @endforeach
-                            </select>
+            <form method="POST" action="/penerimaans">
+                @csrf
+                <div id="test-l-1" class="content">
+                    <input type="hidden" id="kode_penerimaan" name="kode_penerimaan" placeholder="" value="PEN">
+                    <div style="height: 58vh;overflow: auto; color:black" class="mt-2">
+                        <div class="form-group row mx-5 mb-5">
+                            <label class="col-sm-3 col-form-label" for="supplier_id">Supplier</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="supplier_id" name="supplier_id">
+                                    <option value="">--- Pilih Supplier ---</option>
+                                    @foreach ($suppliers as $supplier)
+                                    <option value="{{$supplier->id}}">{{ $supplier->nama_supplier }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row mx-5 mb-5">
+                            <label class="col-sm-3 col-form-label" for="gudang">Gudang</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="gudang" name="gudang">
+                                    <option value="">--- Pilih Gudang ---</option>
+                                    @foreach ($gudangs as $gudang)
+                                    <option value="{{$gudang->id}}">{{ $gudang->nama_gudang }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row mx-5 mb-5">
+                            <label class="col-sm-3 col-form-label" for="tanggal">Tanggal</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" id="tanggal" name="tanggal" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group row mx-5 mb-5">
+                            <label class="col-sm-3 col-form-label" for="mata-uang">Mata Uang</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="mata-uang" name="mata_uang">
+                                    <option value="">--- Pilih Mata Uang ---</option>
+                                    <option value="">IDR</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group row mx-5 mb-5">
-                        <label class="col-sm-3 col-form-label" for="gudang">Gudang</label>
-                        <div class="col-sm-9">
-                            <select class="form-control" id="gudang">
-                                @foreach ($gudangs as $gudang)
-                                <option>{{ $gudang->nama_gudang }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                    <div class="modal-footer">
+                        <a href="/penerimaans">
+                            <button type="button" class="btn btn-secondary">Batal</button>
+                        </a>
+                        <a class="btn" style="background-color:#00BFA6; color:white" onclick="stepper.next()">Selanjutnya</a>
                     </div>
-                    <div class="form-group row mx-5 mb-5">
-                        <label class="col-sm-3 col-form-label" for="tanggal">Tanggal</label>
-                        <div class="col-sm-9">
-                            <input type="date" class="form-control" id="tanggal" placeholder="">
-                        </div>
-                    </div>
-                    <div class="form-group row mx-5 mb-5">
-                        <label class="col-sm-3 col-form-label" for="mata-uang">Mata Uang</label>
-                        <div class="col-sm-9">
-                            <select class="form-control" id="mata-uang">
-                                <option>IDR</option>
-                                <option>$</option>
-                            </select>
-                        </div>
-                    </div>
-                </form>
-                <div class="modal-footer">
-                    <a href="/penerimaans">
-                        <button type="button" class="btn btn-secondary">Batal</button>
-                    </a>
-                    <button class="btn" style="background-color:#00BFA6; color:white" onclick="stepper.next()">Selanjutnya</button>
                 </div>
-            </div>
 
-            <div id="test-l-2" class="content">
-                <form style="overflow: auto; height: 52vh;" id="formbarang">
-                    <div class="form-row mx-5" id="isiformbarang0">
-                        <div class="form-group col-md-3">
-                            <label for="nama_barang" id="lbl">Barang</label>
-                            <select class="form-control" id="nama_barang">
-                                @foreach ($barangs as $barang)
-                                <option>{{ $barang->nama_barang }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group col-md-1">
-                            <label for="jumlah_barang">QTY</label>
-                            <input type="number" class="form-control" id="jumlah_barang" placeholder="-">
-                        </div>
-                        <div class="form-group col-md-1">
-                            <label for="satuan_unit">Unit</label>
-                            <input type="number" class="form-control" id="unit" disabled>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="harga">Harga Satuan</label>
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">Rp</div>
-                                </div>
-                                <input type="number" class="form-control" id="harga" placeholder="-">
+                <div id="test-l-2" class="content">
+                    <div style="overflow: auto; height: 52vh;" id="formbarang">
+                        <div class="form-row mx-5" id="isiformbarang0">
+                            <div class="form-group col-md-3">
+                                <label for="nama_barang" id="lbl">Barang</label>
+                                <select class="form-control" id="nama_barang" name="barang_id[]">
+                                    <option value="">--- Pilih Barang ---</option>
+                                    @foreach ($barangs as $barang)
+                                    <option value="{{$barang->id}}">{{ $barang->nama_barang }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="total">Total</label>
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">Rp</div>
-                                </div>
-                                <input type="number" class="form-control" id="total" disabled>
+                            <div class="form-group col-md-1">
+                                <label for="jumlah_barang">QTY</label>
+                                <input type="number" class="form-control" id="jumlah_barang" name="jumlah_barang[]" placeholder="-">
                             </div>
-                        </div>
-                        <div class="form-group col-md-1">
-                            <p style="color: transparent">#</p>
-                            <a onclick="hapus(this)">
-                                <i style="color:grey;" class="fas fa-trash"></i>
-                            </a>
+                            <div class="form-group col-md-1">
+                                <label for="satuan_unit">Unit</label>
+                                <input type="number" class="form-control" id="unit" name="unit_barang[]" disabled>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="harga">Harga Satuan</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">Rp</div>
+                                    </div>
+                                    <input type="number" class="form-control" id="harga" name="harga[]" placeholder="-">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="total">Total</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">Rp</div>
+                                    </div>
+                                    <input type="number" class="form-control" id="total" name="total[]" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-1">
+                                <p style="color: transparent">#</p>
+                                <a onclick="hapus(this)">
+                                    <i style="color:grey;" class="fas fa-trash"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </form>
-                <div class="alert alert-primary mt-3 mb-0 p-1" id="tambahbarang" onmouseover="green(this)" onmouseout="grey(this)" style="cursor: pointer; font-size:15px;">
-                    <i class="fas fa-plus d-flex justify-content-center">
-                        <span class="mx-2">Tambah Barang</span>
-                    </i>
+                    <div class="alert alert-primary mt-3 mb-0 p-1" id="tambahbarang" onmouseover="green(this)" onmouseout="grey(this)" style="cursor: pointer; font-size:15px;">
+                        <i class="fas fa-plus d-flex justify-content-center">
+                            <span class="mx-2">Tambah Barang</span>
+                        </i>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="d-flex mr-auto">
+                            <p class="m-2">Total </p>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Rp</div>
+                                </div>
+                                <input style="width:26vw" type="number" name="total_harga_barang" id="total_harga_barang" disabled>
+                            </div>
+                        </div>
+                        <a href="/penerimaans">
+                            <button type="button" class="btn btn-secondary">Batal</button>
+                        </a>
+                        <a class="btn" style="background-color:#00BFA6; color:white" onclick="stepper.previous()">Sebelumnya</a>
+                        <a class="btn" style="background-color:#00BFA6; color:white" onclick="stepper.next()">Selanjutnya</a>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <div class="d-flex mr-auto">
-                        <p class="m-2">Total </p>
-                        <div class="input-group mb-2">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">Rp</div>
+                <div id="test-l-3" class="content">
+                    <div style="height: 58vh;overflow:auto" class="mt-2">
+                        <div class="form-group row mx-5 mb-5">
+                            <label class="col-sm-3 col-form-label" for="diskon">Diskon</label>
+                            <div class="col-sm-9">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">%</div>
+                                    </div>
+                                    <input type="number" class="form-control" id="diskon" name="diskon" placeholder="-">
+                                </div>
                             </div>
-                            <input style="width:26vw" type="number" name="total_harga_barang" id="total_harga_barang" disabled>
+                        </div>
+                        <div class="form-group row mx-5 mb-5">
+                            <label class="col-sm-3 col-form-label" for="biaya_lain">Biaya lain</label>
+                            <div class="col-sm-9">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">Rp</div>
+                                    </div>
+                                    <input type="number" class="form-control" name="biaya_lain" id="biaya_lain" placeholder="-">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mx-5 mb-5">
+                            <label class="col-sm-3 col-form-label" for="termin_pembayaran">Termin Pembayaran</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="termin_pembayaran" name="termin_pembayaran">
+                                    <option value="">--- Pilih Termin ---</option>
+                                    <option value="">0 % 0 Net 0</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row m-5 d-flex justify-content-end">
+                            <label class="col-sm-3 col-form-label" for="total_harga_keseluruhan">Total</label>
+                            <div class="col-sm-9">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">Rp</div>
+                                    </div>
+                                    <input style="width:26vw" type="number" name="total_harga_keseluruhan" id="total_harga_keseluruhan" disabled>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <a href="/penerimaans">
-                        <button type="button" class="btn btn-secondary">Batal</button>
-                    </a>
-                    <button class="btn" style="background-color:#00BFA6; color:white" onclick="stepper.previous()">Sebelumnya</button>
-                    <button class="btn" style="background-color:#00BFA6; color:white" onclick="stepper.next()">Selanjutnya</button>
+                    <div class="modal-footer">
+                        <a href="/penerimaans">
+                            <button type="button" class="btn btn-secondary">Batal</button>
+                        </a>
+                        <a class="btn" style="background-color:#00BFA6; color:white" onclick="stepper.previous()">Sebelumnya</a>
+                        <button type="submit" class="btn" style="background-color:#00BFA6; color:white">Tambah</button>
+                    </div>
                 </div>
-            </div>
-            <div id="test-l-3" class="content">
-                <form style="height: 58vh;overflow:auto" class="mt-2">
-                    <div class="form-group row mx-5 mb-5">
-                        <label class="col-sm-3 col-form-label" for="diskon">Diskon</label>
-                        <div class="col-sm-9">
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">%</div>
-                                </div>
-                                <input type="number" class="form-control" id="diskon" placeholder="-">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row mx-5 mb-5">
-                        <label class="col-sm-3 col-form-label" for="biaya_lain">Biaya lain</label>
-                        <div class="col-sm-9">
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">Rp</div>
-                                </div>
-                                <input type="number" class="form-control" id="biaya_lain" placeholder="-">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row mx-5 mb-5">
-                        <label class="col-sm-3 col-form-label" for="termin_pembayaran">Termin Pembayaran</label>
-                        <div class="col-sm-9">
-                            <select class="form-control" id="termin_pembayaran">
-                                <option>0 % 0 Net 0</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row m-5 d-flex justify-content-end">
-                        <label class="col-sm-3 col-form-label" for="total_harga_keseluruhan">Total</label>
-                        <div class="col-sm-9">
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">Rp</div>
-                                </div>
-                                <input style="width:26vw" type="number" name="total_harga_keseluruhan" id="total_harga_keseluruhan" disabled>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <div class="modal-footer">
-                    <a href="/penerimaans">
-                        <button type="button" class="btn btn-secondary">Batal</button>
-                    </a>
-                    <button class="btn" style="background-color:#00BFA6; color:white" onclick="stepper.previous()">Sebelumnya</button>
-                    <button type="submit" class="btn" style="background-color:#00BFA6; color:white">Tambah</button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

@@ -37,10 +37,10 @@
                 @method('put')
                 @csrf
                 <div id="test-l-1" class="content">
-                <input type="hidden" id="kode_pemesanan" name="kode_pemesanan" placeholder="" value="{{$pemesanan->kode_pemesanan}}">
+                    <input type="hidden" id="kode_pemesanan" name="kode_pemesanan" placeholder="" value="{{$pemesanan->kode_pemesanan}}">
                     <div style="height: 58vh;overflow: auto; color:black" class="mt-2">
                         <div class="form-group row mx-5 mb-5">
-                            <label class="col-sm-3 col-form-label" for="nama_supplier">Supplier</label>
+                            <label class="col-sm-3 col-form-label" for="supplier_id">Supplier</label>
                             <div class="col-sm-9">
                                 <select class="form-control" id="supplier_id" name="supplier_id">
                                     <option value="">--- Pilih Supplier ---</option>
@@ -71,8 +71,8 @@
                             <label class="col-sm-3 col-form-label" for="mata-uang">Mata Uang</label>
                             <div class="col-sm-9">
                                 <select class="form-control" id="mata-uang" name="mata_uang">
-                                    <option>IDR</option>
-                                    <option>$</option>
+                                    <option value="">--- Pilih Mata Uang ---</option>
+                                    <option value="">IDR</option>
                                 </select>
                             </div>
                         </div>

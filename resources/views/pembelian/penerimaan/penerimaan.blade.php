@@ -18,7 +18,7 @@
 @foreach ($penerimaans as $penerimaan)
 <tr>
     <td>{{ $penerimaan->kode_penerimaan }}</td>
-    <td>Supplier</td>
+    <td>{{ $penerimaan->supplier->nama_supplier }}</td>
     <td>{{ $penerimaan->tanggal }}</td>
     <td>{{ $penerimaan->total_harga }}</td>
     <td class="d-flex justify-content-between">

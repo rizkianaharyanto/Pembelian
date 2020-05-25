@@ -71,8 +71,8 @@
                             <label class="col-sm-3 col-form-label" for="mata-uang">Mata Uang</label>
                             <div class="col-sm-9">
                                 <select class="form-control" id="mata-uang" name="mata_uang">
-                                    <option>IDR</option>
-                                    <option>$</option>
+                                    <option value="">--- Pilih Mata Uang ---</option>
+                                    <option value="">IDR</option>
                                 </select>
                             </div>
                         </div>

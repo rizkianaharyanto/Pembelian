@@ -43,7 +43,25 @@ class PenerimaansController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $penerimaan = Penerimaan::create([
+            'kode_penerimaan' => $request->kode_penerimaan,
+            'supplier_id' => $request->supplier_id,
+            'gudang' => $request->gudang,
+            'tanggal' => $request->tanggal,
+            'diskon' => $request->diskon,
+            'biaya_lain' => $request->biaya_lain,
+            'total_jenis_barang' => 3,
+            'total_harga' => 1000,
+        ]);
+
+        foreach ($request->barang_id as $index => $id) {
+
+            $penerimaan->barangs()->attach($id, [
+                'jumlah_barang' => $request->jumlah_barang[$index],
+                'harga' => $request->harga[$index]
+            ]);
+        }
+        return redirect('/penerimaans');
     }
 
     /**
@@ -82,7 +100,28 @@ class PenerimaansController extends Controller
      */
     public function update(Request $request, Penerimaan $penerimaan)
     {
-        //
+        Penerimaan::where('id', $penerimaan->id)
+            ->update([
+                'kode_penerimaan' => $request->kode_penerimaan,
+                'supplier_id' => $request->supplier_id,
+                'gudang' => $request->gudang,
+                'tanggal' => $request->tanggal,
+                'diskon' => $request->diskon,
+                'biaya_lain' => $request->biaya_lain,
+                'total_jenis_barang' => 3,
+                'total_harga' => 1000,
+            ]);
+        foreach ($request->barang_id as $index => $id) {
+            $penerimaan->barangs()->detach($id, [
+                'jumlah_barang' => $request->jumlah_barang[$index],
+                'harga' => $request->harga[$index]
+            ]);
+            $penerimaan->barangs()->attach($id, [
+                'jumlah_barang' => $request->jumlah_barang[$index],
+                'harga' => $request->harga[$index]
+            ]);
+        }
+        return redirect('/penerimaans');
     }
 
     /**

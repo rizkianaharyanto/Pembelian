@@ -51,7 +51,7 @@
                     <hr>
                     <div style="height: 48vh;overflow: auto; color:black" class="mt-2">
                         <div class="form-group row mx-5 mb-5">
-                            <label class="col-sm-3 col-form-label" for="nama_supplier">Supplier</label>
+                            <label class="col-sm-3 col-form-label" for="supplier_id">Supplier</label>
                             <div class="col-sm-9">
                                 <select class="form-control" id="supplier_id" name="supplier_id">
                                     <option value="">--- Pilih Supplier ---</option>
