@@ -10,7 +10,6 @@ $factory->define(Permintaan::class, function (Faker $faker) {
         'kode_permintaan' => $faker->numerify('PER###'),
         'tanggal' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'gudang' => "gudang",
-        'alamat_supplier' => $faker->address,
         'total_jenis_barang' => $faker->randomNumber(1),  
         'total_harga' => $faker->randomNumber(5),  
         'diskon' => $faker->randomNumber(5),

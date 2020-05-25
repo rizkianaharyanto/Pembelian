@@ -18,7 +18,6 @@ class CreatePermintaansTable extends Migration
             $table->string('kode_permintaan');
             $table->date('tanggal');
             $table->string('gudang');
-            $table->string('alamat_supplier');
             $table->integer('total_jenis_barang');
             $table->integer('total_harga');
             $table->double('diskon', 8, 3);

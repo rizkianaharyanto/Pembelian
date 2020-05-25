@@ -34,17 +34,19 @@
         </div>
         <div class="bs-stepper-content">
             <div id="test-l-1" class="content">
-                <form style="height: 58vh;overflow: auto; color:black" class="mt-2">
-                    <div class="form-group row mx-5 mb-5">
-                        <label class="col-sm-3 col-form-label" for="nama_permintaan">Permintaan</label>
-                        <div class="col-sm-9">
-                            <select class="form-control" id="nama_permintaan">
-                                @foreach ($permintaans as $permintaan)
-                                <option>{{ $permintaan->kode_permintaan }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                <div class="d-flex justify-content-center">
+                    <label class="col-sm-4 col-form-label" for="nama_permintaan">Buat Pesanan Berdasarkan Permintaan</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="nama_permintaan">
+                            <option value="">--- Pilih Permintaan ---</option>
+                            @foreach ($permintaans as $permintaan)
+                            <option value="{{$permintaan->id}}">{{ $permintaan->kode_permintaan }}</option>
+                            @endforeach
+                        </select>
                     </div>
+                </div>
+                <hr>
+                <form style="height: 48vh;overflow: auto; color:black" class="mt-2">
                     <div class="form-group row mx-5 mb-5">
                         <label class="col-sm-3 col-form-label" for="nama_supplier">Supplier</label>
                         <div class="col-sm-9">

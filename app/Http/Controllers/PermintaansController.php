@@ -47,7 +47,6 @@ class PermintaansController extends Controller
         $permintaan = Permintaan::create([
             'kode_permintaan' => $request->kode_permintaan,
             'supplier_id' => $request->supplier_id,
-            'alamat_supplier' => 'alamat',
             'gudang' => $request->gudang,
             'tanggal' => $request->tanggal,
             'diskon' => $request->diskon,
@@ -56,16 +55,14 @@ class PermintaansController extends Controller
             'total_harga' => 1000,
         ]);
 
-        foreach ($request->barang_id as $index => $id){
+        foreach ($request->barang_id as $index => $id) {
 
             $permintaan->barangs()->attach($id, [
-            'jumlah_barang' => $request->jumlah_barang[$index], 
-            'harga' => $request->harga[$index]
+                'jumlah_barang' => $request->jumlah_barang[$index],
+                'harga' => $request->harga[$index]
             ]);
         }
         return redirect('/permintaans');
-
-        
     }
 
 
@@ -88,6 +85,7 @@ class PermintaansController extends Controller
      */
     public function edit(Permintaan $permintaan)
     {
+        // dd($permintaan->barangs);
         return view('pembelian.permintaan.permintaanedit', [
             'permintaan' => $permintaan,
             'suppliers' => Supplier::all(),
@@ -105,7 +103,29 @@ class PermintaansController extends Controller
      */
     public function update(Request $request, Permintaan $permintaan)
     {
-        //
+        // dd($request);
+        Permintaan::where('id', $permintaan->id)
+            ->update([
+                'kode_permintaan' => $request->kode_permintaan,
+                'supplier_id' => $request->supplier_id,
+                'gudang' => $request->gudang,
+                'tanggal' => $request->tanggal,
+                'diskon' => $request->diskon,
+                'biaya_lain' => $request->biaya_lain,
+                'total_jenis_barang' => 3,
+                'total_harga' => 1000,
+            ]);
+        foreach ($request->barang_id as $index => $id) {
+            $permintaan->barangs()->detach($id, [
+                'jumlah_barang' => $request->jumlah_barang[$index],
+                'harga' => $request->harga[$index]
+            ]);
+            $permintaan->barangs()->attach($id, [
+                'jumlah_barang' => $request->jumlah_barang[$index],
+                'harga' => $request->harga[$index]
+            ]);
+        }
+        return redirect('/permintaans');
     }
 
     /**
