@@ -15,7 +15,7 @@ class Retur extends Model
 
     public function faktur()
     {
-        return $this->belongsTo('App\Faktur');
+        return $this->hasOne('App\Faktur');
     }
 
     public function supplier()

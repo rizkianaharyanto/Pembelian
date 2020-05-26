@@ -19,11 +19,6 @@ class Penerimaan extends Model
         return $this->belongsTo('App\Pemesanan');
     }
 
-    public function faktur()
-    {
-        return $this->belongsTo('App\Faktur');
-    }
-
     public function supplier()
     {
         return $this->belongsTo('App\Supplier');

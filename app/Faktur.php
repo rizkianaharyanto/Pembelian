@@ -13,19 +13,14 @@ class Faktur extends Model
         return $this->belongsTo('App\Jurnal');
     }
 
-    public function penerimaans()
+    public function pemesanan()
     {
-        return $this->hasMany('App\Penerimaan');
+        return $this->hasOne('App\Pemesanan');
     }
 
-    public function pemesanans()
+    public function retur()
     {
-        return $this->hasMany('App\Pemesanan');
-    }
-
-    public function returs()
-    {
-        return $this->hasMany('App\Retur');
+        return $this->hasOne('App\Retur');
     }
 
     public function supplier()
