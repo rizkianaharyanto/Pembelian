@@ -72,9 +72,12 @@ class PermintaansController extends Controller
      * @param  \App\Permintaan  $permintaan
      * @return \Illuminate\Http\Response
      */
-    public function show(Permintaan $permintaan)
+    public function show($id)
     {
-        //
+        $permintaan = Permintaan::find($id);
+        $barangs = $permintaan->barangs;
+        return response()
+        ->json(['success'=> true, 'permintaan' => $permintaan, 'barangs' => $barangs ]);
     }
 
     /**

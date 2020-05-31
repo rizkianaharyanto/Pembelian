@@ -83,7 +83,7 @@
                 <div class="d-flex justify-content-center">
                     <p class="mr-5">Buat Faktur berdasarkan : </p>
                     <input class="mx-2" type="radio" name="radio" onclick="checkBarang(this)" />
-                    <h5 class="mr-5">Barang</h5>
+                    <h5 class="mr-5">Pemesanan</h5>
                     <input class="mx-2" type="radio" name="radio" onclick="checkPenerimaan(this)" />
                     <h5 class="mr-3">Penerimaan</h5>
                 </div>
